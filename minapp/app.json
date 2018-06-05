@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/shop/index",
+    "pages/order/index",
+    "pages/playTour/index",
+    "pages/pay/pay",
+    "pages/shopping/shopping"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "汉普敦",
+    "navigationBarTextStyle": "#ffffff",
+    "disableScroll": true
+  }
+
+
+}

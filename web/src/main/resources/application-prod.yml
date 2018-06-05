@@ -1,0 +1,20 @@
+storepath:
+  wxacode: /home/hpd/
+
+silk-v3-decoder: /home/silk-v3-decoder/
+
+#####begin 数据配置#####
+#url: jdbc:mysql://127.0.0.1:3306/lavande_butler?characterEncoding=utf8
+butler:
+  datasource:
+    url: jdbc:mysql://gz-cdb-fs0xs7ss.sql.tencentcdb.com:62639/TravalTips?characterEncoding=utf8
+    username: root
+    password: lgsh615917296
+    driver-class-name: com.mysql.jdbc.Driver
+
+swagger:
+  show: false
+
+spring:
+  jpa:
+    show-sql: false
