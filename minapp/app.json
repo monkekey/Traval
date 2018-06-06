@@ -1,19 +1,47 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/shop/index",
-    "pages/order/index",
-    "pages/playTour/index",
-    "pages/pay/pay",
-    "pages/shopping/shopping"
+    "pages/travelCenter/index",
+    "pages/helpCenter/index",
+    "pages/me/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000000",
-    "navigationBarTitleText": "汉普敦",
+    "navigationBarTitleText": "快乐旅行",
     "navigationBarTextStyle": "#ffffff",
     "disableScroll": true
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "red",
+    "borderStyle": "#F7F7F6",
+    "list": [
+      {
+        "selectedIconPath": "images/homeselect.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/travelselect.png",
+        "iconPath": "images/travel.png",
+        "pagePath": "pages/travelCenter/index",
+        "text": "攻略中心"
+      },
+      {
+        "selectedIconPath": "images/helpselect.png",
+        "iconPath": "images/help.png",
+        "pagePath": "pages/helpCenter/index",
+        "text": "求助"
+      },
+      {
+        "selectedIconPath": "images/meselect.png",
+        "iconPath": "images/me.png",
+        "pagePath": "pages/me/index",
+        "text": "我的"
+      }
+    ]
   }
-
 
 }
