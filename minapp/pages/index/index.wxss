@@ -6,6 +6,9 @@
   border-top-left-radius: 40rpx;
   border-bottom-left-radius: 40rpx;
   width: 8%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .inputPlaceholder{
