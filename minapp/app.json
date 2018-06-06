@@ -27,13 +27,13 @@
         "selectedIconPath": "images/travelselect.png",
         "iconPath": "images/travel.png",
         "pagePath": "pages/travelCenter/index",
-        "text": "攻略中心"
+        "text": "攻略"
       },
       {
         "selectedIconPath": "images/helpselect.png",
         "iconPath": "images/help.png",
         "pagePath": "pages/helpCenter/index",
-        "text": "求助"
+        "text": "帮帮"
       },
       {
         "selectedIconPath": "images/meselect.png",

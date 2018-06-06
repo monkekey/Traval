@@ -20,15 +20,15 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"list": []
-		},
 		"plugin": {
 			"current": -1,
 			"list": []
 		},
+		"game": {
+			"list": []
+		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
@@ -38,49 +38,9 @@
 					"scene": "1011"
 				},
 				{
-					"id": -1,
-					"name": "选房",
-					"pathName": "pages/roomChange/roomChange",
-					"query": "scene=653767348174856_112",
-					"scene": "1011"
-				},
-				{
-					"id": -1,
-					"name": "日历",
-					"pathName": "pages/claner/claner",
-					"query": "scene=653767348174856_112",
-					"scene": "1011"
-				},
-				{
-					"id": 3,
-					"name": "cheak",
-					"pathName": "pages/cheakin/cheakin",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "shopping",
-					"pathName": "pages/shopping/shopping",
-					"query": "scene=653767348174856_112",
-					"scene": "1011"
-				},
-				{
-					"id": -1,
-					"name": "cheak",
-					"pathName": "pages/checkDetail/checkDetail",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "订单",
-					"pathName": "pages/order/index",
-					"query": "scene=653767348174856_112",
-					"scene": "1011"
-				},
-				{
-					"id": 7,
+					"id": 1,
 					"name": "首页",
-					"pathName": "pages/indexPage/indexPage",
+					"pathName": "pages/index/index",
 					"query": "scene=",
 					"scene": "1011"
 				}

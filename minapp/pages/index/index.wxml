@@ -1,2 +1,17 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<import src="/zanui/tab/index.wxml" />
+
+<view style="height: {{height}}px;">
+  <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="lower">
+    <view class='selectView' style='top: {{height/4}}px;'>
+      <view class='selectIcon'>
+        <image class='selIconImg' src='../../images/icon-black-select.png'></image>
+      </view>
+      <input style='height:54rpx;' disabled placeholder-class='inputPlaceholder' placeholder="心之所向，行之所踪"/>
+    </view>
+    <view style='height:{{height/3}}px;background-size:100%;background-image: url("../../images/test/tabImg.jpg");'>
+    </view>
+    <template
+      is="zan-tab"
+      data="{{ ...tab, componentId: 'tab' }}"></template>
+  </scroll-view>
+</view>
