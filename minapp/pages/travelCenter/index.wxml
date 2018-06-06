@@ -21,9 +21,9 @@
         </view>
         <view class='cell_nickName'>{{item.nickName}}</view>
         <view class='cell_right'>
-          <view class='btn_a'><i class="icon iconfont icon-yanjing"></i>{{item.browseNum}}</view>
-          <view class='btn_a'><i class="icon iconfont icon-pinglun"></i>{{item.replyNum}}</view>
-          <view class='btn_a'><i class="icon iconfont icon-chakandianzan"></i>{{item.upvoteNum}}</view>
+          <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
+          <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+          <view class='btn_a'><image src='../../images/hasUpvote.png' class='ico_img'></image>{{item.upvoteNum}}</view>
         </view>
       </view>
       <view class='cont_text'>
