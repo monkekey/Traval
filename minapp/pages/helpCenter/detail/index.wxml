@@ -1,45 +1,78 @@
-<view class='content' style='margin:10px;'>
-  <scroll-view scroll-y style="height: {{height}}px;">
-     <view class='cont_head'>
-      <view class='cell_ico'>
-        <image src='../../../images/test/img_5.png' style='width:40px;height:40px;border-radius:100%;'></image>
-      </view>
-      <view class='cell_text'>
-        <view class='cell_name'>{{helpData.nickName}}</view>
-        <view class='cell_time'>{{helpData.createTime}}</view>
-      </view>
-      <view class="cell_right">
-         <block wx:if="{{helpData.flag==2}}">
-          <view class='text'>求助中</view>
-        </block>
-        <block wx:elif="{{helpData.flag==3}}">
-          <view class='text finish'>已完成</view>
-        </block>
-      </view>
-   </view>
-   <view class='form_cont' style='margin-top:10px'>
-      <view class='list_field'>
-         <view class='field_name'>求助类型</view>
-         <view class='field_value'>寻物</view>
-      </view>
-      <view class='list_field'>
-         <view class='field_name'>遗失地点</view>
-         <view class='field_value'>深圳市龙华区第二个红绿灯左转弯的第三个路口的大树下</view>
-      </view>
-      <view class='list_field'>
-         <view class='field_name'>赏金</view>
-         <view class='field_value'>520元</view>
-      </view>
-      <view class='list_field'>
-         <view class='field_desc_name'>描述</view>
-         <view class='field_desc_cont'>深圳市龙华区第二个红绿灯左转弯的第三个路口的大树下</view>
-      </view>
-      <view class='attachment'>
-        <image wx:for="{{4}}" wx:key="{{index}}" src="../../../images/test/dog_{{item}}.jpg" style='width:750rpx'></image>
-      </view>
+<view>
+   <view class='content' style='margin:10px;'>
+    <scroll-view scroll-y style="height: {{height}}px;">
+      <view class='cont_head'>
+        <view class='cell_ico'>
+          <image src='../../../images/test/img_5.png' style='width:40px;height:40px;border-radius:100%;'></image>
+        </view>
+        <view class='cell_text'>
+          <view class='cell_name'>{{helpData.nickName}}</view>
+          <view class='cell_time'>{{helpData.createTime}}</view>
+        </view>
+        <view class="cell_right">
+          <block wx:if="{{helpData.flag==2}}">
+            <view class='text'>求助中</view>
+          </block>
+          <block wx:elif="{{helpData.flag==3}}">
+            <view class='text finish'>已完成</view>
+          </block>
+        </view>
     </view>
-    <view class='last_btn' wx:if="{{helpData.flag==2}}">
-      <view class='btn_v'>领取任务</view>
+    <view class='form_cont' style='margin-top:10px'>
+        <view class='list_field'>
+          <view class='field_name'>求助类型</view>
+          <view class='field_value'>寻物</view>
+        </view>
+        <view class='list_field'>
+          <view class='field_name'>遗失地点</view>
+          <view class='field_value'>深圳市龙华区第二个红绿灯左转弯的第三个路口的大树下</view>
+        </view>
+        <view class='list_field'>
+          <view class='field_name'>赏金</view>
+          <view class='field_value'>520元</view>
+        </view>
+        <view class='list_field'>
+          <view class='field_desc_name'>描述</view>
+          <view class='field_desc_cont'>深圳市龙华区第二个红绿灯左转弯的第三个路口的大树下</view>
+        </view>
+        <view class='attachment'>
+          <image wx:for="{{4}}" wx:key="{{index}}" src="../../../images/test/dog_{{item}}.jpg" style='width:750rpx'></image>
+        </view>
+      </view>
+      <view class='last_btn' wx:if="{{helpData.flag==2}}">
+        <view class='btn_v'>领取任务</view>
+      </view>
+      <view class='blank'></view>
+      <view class='reply_list' style='margin-top:10px'>
+        <view class='reply_title'>全部回复</view>
+        <view class='reply_item'>
+          <view class='rank_name'>
+            <view class='cell_ico'>
+              <image src='../../../images/test/img_5.png' style='width:40px;height:40px;border-radius:100%;'></image>
+            </view>
+            <view class='cell_name'>{{helpData.nickName}}</view>
+            <view class='cell_time'>{{helpData.createTime}}</view>
+          </view>
+          <view class='reply_cont'>
+            请问找到了么？还需要继续找吗？
+          </view>
+          <view class='botton_btn'>
+            <view class='btn_a'><image src='../../../images/eye.png' class='ico_img'></image>{{helpData.browseNum}}</view>
+            <view class='btn_a'><image src='../../../images/reply.png' class='ico_img'></image>{{helpData.replyNum}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='foot_operation foot_operation_2'>
+    <view class='cell_dz'><image src='../../../images/eye.png' class='btn_img'></image>12</view>
+    <view class='cell_hf' bindtap='replyMainItem' data-item='{{pageData}}'><image src='../../../images/reply.png' class='btn_img'></image>60</view>
+  </view>
+  <view class="hdxq_hf_box {{showReplyBox?'open':''}}">
+    <view class='hdxq_hf_cont'>
+        <textarea></textarea>
+        <button class='qx_btn' bindtap='cancelBox'>取消</button>
+        <button class='fs_btn' bindtap='commitReply'>提交</button>
     </view>
-  </scroll-view>
+  </view>
 </view>

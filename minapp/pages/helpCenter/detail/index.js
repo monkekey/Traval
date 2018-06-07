@@ -7,6 +7,7 @@ Page({
   data: {
     height: 0,
     helpData:{},
+    showReplyBox: false
   },
 
   /**
@@ -78,5 +79,33 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 回复内容
+   */
+  replyMainItem(e) {
+    let item = e.currentTarget.dataset.item;
+    this.setData({
+      showReplyBox: true
+    });
+  },
+
+  /**
+   * 取消回复
+   */
+  cancelBox(e) {
+    this.setData({
+      showReplyBox: false
+    });
+  },
+
+  /**
+   * 提交回复
+   */
+  commitReply(e) {
+    this.setData({
+      showReplyBox: false
+    });
   }
 })
