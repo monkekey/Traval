@@ -8,39 +8,93 @@
       </view>
       <input style='height:54rpx;' disabled placeholder-class='inputPlaceholder' placeholder="心之所向，行之所踪"/>
     </view>
-    <view style='height:{{height/3}}px;background-size:100%;background-image: url("../../images/test/tabImg.jpg");'>
-    </view>
-    <template
-      is="zan-tab"
-      data="{{ ...tab, componentId: 'tab' }}"></template>
-    <view class='content_list'>
+    <view style='height:{{height/3}}px;background-size:100%;background-image: url("../../images/test/tabImg.jpg");'></view>
+    <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
+    <view class='content_list' wx:if="{{selectedId==0}}">
      <view class='content_list_item' wx:for="{{travleData}}" wx:key="index">
-      <view class='item_img'>
-        <image src='{{item.attachment[0]}}' style='border-top-left-radius:10px;border-top-right-radius:10px;width:100%;'></image>
-      </view>
-      <view class='rank_name'>
-        <view class='cell_ico'>
-          <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
+        <view class='item_img'>
+          <image src='{{item.attachment[0]}}' style='border-top-left-radius:10px;border-top-right-radius:10px;width:100%;'></image>
         </view>
-        <view class='cell_nickName'>{{item.nickName}}</view>
-        <view class='cell_right'>
-          <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
-          <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
-          <view class='btn_a'><image src='../../images/hasUpvote.png' class='ico_img'></image>{{item.upvoteNum}}</view>
-        </view>
-      </view>
-      <view class='cont_text'>
-        <view class='cont_text_title'>
-          <view class='cell_title'>{{item.title}}</view>
-          <view class='cell_tags'>
-             <view class='item_tag' wx:for="{{item.tags}}" wx:for-item="tag" wx:for-index="idx" wx:key="{{idx}}">{{tag.value}}</view>
+        <view class='rank_name'>
+          <view class='cell_ico'>
+            <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
           </view>
-          <view class='cell_time'>{{item.createTime}}</view>
+          <view class='cell_nickName'>{{item.nickName}}</view>
+          <view class='cell_right'>
+            <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
+            <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+            <view class='btn_a'><image src='../../images/hasUpvote.png' class='ico_img'></image>{{item.upvoteNum}}</view>
+          </view>
         </view>
-        <view class='cont_text_desc'>{{item.content}}</view>
+        <view class='cont_text'>
+          <view class='cont_text_title'>
+            <view class='cell_title'>{{item.title}}</view>
+            <view class='cell_tags'>
+              <view class='item_tag' wx:for="{{item.tags}}" wx:for-item="tag" wx:for-index="idx" wx:key="{{idx}}">{{tag.value}}</view>
+            </view>
+            <view class='cell_time'>{{item.createTime}}</view>
+          </view>
+          <view class='cont_text_desc'>{{item.content}}</view>
+        </view>
+        <view class='blank'></view>
       </view>
-      <view class='blank'></view>
-     </view>
-  </view>
+    </view>
+    <view class='help_list'  wx:if="{{selectedId==1}}">
+       <view class='list_item' wx:for="{{helpData}}" wx:key="{{index}}" bindtap='toDetailPage' data-item='{{item}}'>
+          <view class='rank_name'>
+             <view class='cell_ico'>
+               <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
+             </view>
+             <view class='cell_right'>
+               <view class='cell_name'>{{item.nickName}}</view>
+              <view class='cell_tag' wx:if="{{item.reward != null && item.reward != ''}}">悬赏{{item.reward}}元</view>
+              <view class='cell_time'>{{item.createTime}}</view>
+             </view>
+          </view>
+          <view class='list_content'>
+            <view class='cell_title'>{{item.title}}</view>
+            <view class='cell_text'>{{item.content}}</view>
+          </view>
+          <view class='list_btn'>
+             <view class="cell_statu {{item.flag==3?'finish':''}}">
+               <block wx:if="{{item.flag==2}}">
+                 求助中
+               </block>
+               <block wx:elif="{{item.flag==3}}">
+                 已完成
+               </block>
+             </view>
+             <view class='cell_right'>
+              <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
+              <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+            </view>
+          </view>
+          <view class='blank'></view>
+       </view>
+    </view>
+    <view class='help_list'  wx:if="{{selectedId==2}}">
+       <view class='list_item' wx:for="{{questionData}}" wx:key="{{index}}">
+          <view class='rank_name'>
+             <view class='cell_ico'>
+               <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
+             </view>
+             <view class='cell_right'>
+               <view class='cell_name'>{{item.nickName}}</view>
+               <view class='cell_time'>{{item.createTime}}</view>
+             </view>
+          </view>
+          <view class='list_content'>
+            <view class='cell_title'>{{item.title}}</view>
+            <view class='cell_text'>{{item.content}}</view>
+          </view>
+          <view class='list_btn'>
+             <view class='cell_right'>
+              <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
+              <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+            </view>
+          </view>
+          <view class='blank'></view>
+       </view>
+    </view>
   </scroll-view>
 </view>

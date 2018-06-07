@@ -1,0 +1,81 @@
+.content .cont_head{
+  display: table;
+  width: 100%;
+  color: #333;
+  font-size: 0.28rem;
+}
+.content .cont_head .cell_ico{
+  display: table-cell;
+  vertical-align: middle;
+  color: #333;
+  font-size: 0.28rem;
+  width: 45px;
+}
+.content .cont_head .cell_text{
+  display: table-cell;
+  vertical-align: middle;
+  color: #333;
+  font-size: 0.28rem;
+}
+.content .cont_head .cell_text .cell_name{
+  color: #222;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.content .cont_head .cell_text .cell_time{
+  color: #777;
+  font-size: 12px;
+  line-height: 1.75;
+}
+.content .cont_head .cell_right{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #333;
+  font-size: 13px;
+}
+.content .cont_head .cell_right .text{
+  background-color:green;
+  color:white;
+  height:25px;
+  vertical-align:middle;
+  line-height:25px;
+  border-radius:10px;
+}
+.content .cont_head .cell_right .text.finish{
+  background-color:#66ccff;
+}
+.form_cont .list_field{
+  display: table;
+  font-size: 15px;
+  width: 750rpx;
+  margin: 5px 0
+}
+.form_cont .list_field .field_name{
+  display: table-cell;
+  width: 70px
+}
+.form_cont .list_field .field_value{
+  display: table-cell;
+  color:#666666;
+}
+.form_cont .list_field .field_desc_name{
+  
+}
+.form_cont .list_field .field_desc_cont{
+  color:#666666;
+  margin: 10px
+}
+.last_btn{
+  margin: 10px;
+  background-color:green;
+  color:white;
+  font-size:14px;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom:30px;
+  border-radius:10px;
+}
+.last_btn .btn_v{
+
+}

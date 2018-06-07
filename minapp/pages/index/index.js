@@ -95,6 +95,131 @@ const pageData ={
         title: '三亚自由行攻略'
       },
     ],
+    helpData:[
+      {
+        id:'123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "5.23日在十字路口看美女，回头就不见了",
+        title: '狗狗丢失',
+        reward:null,
+        flag:2
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "5.23日在十字路口看美女，回头就不见了",
+        title: '狗狗丢失',
+        reward: null,
+        flag: 3
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "5.23日在十字路口看美女，回头就不见了",
+        title: '狗狗丢失',
+        reward: 10,
+        flag: 3
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "5.23日在十字路口看美女，回头就不见了",
+        title: '狗狗丢失',
+        reward: null,
+        flag: 2
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "5.23日在十字路口看美女，回头就不见了",
+        title: '狗狗丢失',
+        reward: 520,
+        flag: 2
+      },
+    ],
+    questionData: [
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "去北欧看北极光，哪个国家更好",
+        title: '北欧在哪里看北极光',
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "去北欧看北极光，哪个国家更好",
+        title: '北欧在哪里看北极光',
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "去北欧看北极光，哪个国家更好",
+        title: '北欧在哪里看北极光',
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "去北欧看北极光，哪个国家更好",
+        title: '北欧在哪里看北极光',
+      },
+      {
+        id: '123456',
+        browseNum: '145',
+        replyNum: '60',
+        avatar: '../../images/test/img_5.png',
+        nickName: '哼哼哈嘿',
+        createTime: "2018-05-23 12:23",
+        content: "去北欧看北极光，哪个国家更好",
+        title: '北欧在哪里看北极光',
+      },
+    ]
+  },
+
+  /**
+   * 跳转到详情页
+   */
+  toDetailPage(e) {
+    let item = e.currentTarget.dataset.item;
+    item = JSON.stringify(item);
+    wx.navigateTo({
+      url: '../helpCenter/detail/index?item=' + item,
+    })
   },
 
   /**
@@ -172,7 +297,8 @@ const pageData ={
     var componentId = e.componentId;
     var selectedId = e.selectedId;
     this.setData({
-      [`${componentId}.selectedId`]: selectedId
+      [`${componentId}.selectedId`]: selectedId,
+      selectedId: selectedId
     });
     let num = selectedId
     let _this = this

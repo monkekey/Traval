@@ -37,7 +37,6 @@
           </view>
           <view class='cont_text_desc'>{{item.content}}</view>
         </view>
-        <view class='blank'></view>
       </view>
     </view>
   </scroll-view>

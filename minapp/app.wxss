@@ -293,6 +293,7 @@ page{
 
 .icon-xiangyoujiantou1:before { content: "\e60c"; }
 
+/**tab切换样式**/
 .active{
     color:#F65959;
     border-bottom: 4rpx solid #F65959;
@@ -398,14 +399,17 @@ page{
 }
 .content_list .content_list_item .cont_text .cont_text_title .cell_tags{
   display: table-cell;
-  font-size:3vw;
+  font-size:9px;
   color:white;
 }
 .content_list .content_list_item .cont_text .cont_text_title .cell_tags .item_tag{
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 2px;
   background-color:#3695E6;
   border-radius:10px;
+  width:35px;
+  height:14px;
+  text-align:center;
 }
 .content_list .content_list_item .cont_text .cont_text_title .cell_time{
   display: table-cell;
@@ -427,8 +431,105 @@ page{
   margin:10px;
 }
 .ico_img{
-  width: 15px;
-  height: 15px
+  width: 12px;
+  height: 10px
+}
+/**攻略列表样式结束**/
+
+/**求助列表样式**/
+.help_list .list_item .rank_name{
+  display:table;
+  margin:0.2rem 0 0 0;
+  padding:0 10px;
+  width:100%;
+}
+.help_list .list_item .rank_name .cell_ico{
+  display:table-cell;
+  vertical-align:middle;
+  padding:0;
+  margin:0;
+  width:12vw;
+}
+.help_list .list_item .rank_name .cell_right{
+  display:table-cell;
+}
+.help_list .list_item .rank_name .cell_right .cell_name{
+  vertical-align:middle;
+  padding:0;
+  margin:0;
+  font-size:3.5vw;
+  color:#641045;
+  display:inline-block;
+}
+.help_list .list_item .rank_name .cell_right .cell_tag{
+  vertical-align:middle;
+  padding:0;
+  margin:0 10px;
+  font-size:9px;
+  color:white;
+  background-color:red;
+  text-align:center;
+  border-radius:10px;
+  height:14px;
+  display:inline-block;
+  width: 55px
+}
+.help_list .list_item .rank_name .cell_right .cell_time{
+  vertical-align:bottom;
+  text-align:right;
+  padding-right:10px;
+  margin:10px;
+  font-size:13px;
+  color:#c4c4c4;
+  float:right;
+  display:inline-block;
+}
+.help_list .list_content{
+  padding: 10px;
+  max-height: 60px
+}
+.help_list .list_content .cell_title{
+  font-size: 4vw
+}
+.help_list .list_content .cell_text{
+  color:#333;
+  font-size:14px;
+  line-height:1.75;
+  max-height:70px;
+  overflow:hidden;
+  word-wrap:break-word;
+  word-break:break-all;
+  margin:10px;
+}
+.help_list .list_btn{
+  display: table;
+  margin: 10px;
+  width: 100%
+}
+.help_list .list_btn .cell_statu{
+  display: table-cell;
+  font-size:14px;
+  margin-left:10px;
+  background-color:green;
+  color:white;
+  vertical-align:middle;
+  width:55px;
+  text-align:center;
+  border-radius:10px;
+}
+.help_list .list_btn .cell_statu.finish{
+  background-color:#66ccff;
 }
 
+.help_list .list_btn .cell_right{
+  display: table-cell;
+  font-size:10px;
+  text-align:right;
+  padding-right:10px;
+  vertical-align: middle
+}
+.help_list .list_btn .cell_right .btn_a{
+   display: inline-block;
+   padding: 0 10px
+}
 

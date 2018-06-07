@@ -1,2 +1,45 @@
-<!--pages/helpCenter/index.wxml-->
-<text>pages/helpCenter/index.wxml</text>
+<import src="/zanui/tab/index.wxml" />
+
+<view class='content' style="height: {{height}}px;">
+  <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{selectType}}" range-key="{{'value'}}">
+    <view class="picker">
+      <image src="../../images/down.png" class='down_img'></image>
+    </view>
+  </picker>
+  <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="lower">
+    <view class='help_list'>
+       <view class='list_item' wx:for="{{helpData}}" wx:key="{{index}}" bindtap='toDetailPage' data-item='{{item}}'>
+          <view class='rank_name'>
+             <view class='cell_ico'>
+               <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
+             </view>
+             <view class='cell_right'>
+               <view class='cell_name'>{{item.nickName}}</view>
+              <view class='cell_tag' wx:if="{{item.reward != null && item.reward != ''}}">悬赏{{item.reward}}元</view>
+              <view class='cell_time'>{{item.createTime}}</view>
+             </view>
+          </view>
+          <view class='list_content'>
+            <view class='cell_title'>{{item.title}}</view>
+            <view class='cell_text'>{{item.content}}</view>
+          </view>
+          <view class='list_btn'>
+             <view class="cell_statu {{item.flag==3?'finish':''}}">
+               <block wx:if="{{item.flag==2}}">
+                 求助中
+               </block>
+               <block wx:elif="{{item.flag==3}}">
+                 已完成
+               </block>
+             </view>
+             <view class='cell_right'>
+              <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
+              <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+            </view>
+          </view>
+        </view>
+    </view>
+  </scroll-view>
+</view>
+

@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/travelCenter/index",
     "pages/helpCenter/index",
+    "pages/helpCenter/detail/index",
     "pages/me/index"
   ],
   "window": {

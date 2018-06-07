@@ -1,1 +1,31 @@
-/* pages/helpCenter/index.wxss */
+page{
+  background-color:#efefef;
+}
+.help_list{
+  margin: 10px;
+  margin-bottom:55px;
+}
+.help_list .list_item{
+  background-color: white;
+  border-radius: 10px;
+}
+.help_list .list_btn {
+  padding-bottom:10px;
+}
+.down_img{
+  width:15px;
+  height:15px;
+  vertical-align:middle;
+}
+.picker{
+  width:15px;
+  height:15px;
+  position:absolute;
+  float:right;
+  right:5px;
+  top:8px;
+}
+.help_list .list_item .rank_name {
+  padding:10px;
+}
+
