@@ -35,7 +35,7 @@ page{
 .graySpace{
   padding-left: 40rpx;
   background: #eee;
-  font-size: 12px;
+  font-size: 24rpx;
   min-height: 30rpx;
 }
 .item-avatar .text_box,.item-avatar-lg .text_box{
@@ -146,17 +146,17 @@ page{
 }
 .doc-title {
   position: relative;
-  padding: 15px 0;
-  margin: 10px 15px;
-  line-height: 25px;
-  font-size: 25px;
+  padding: 30rpx 0;
+  margin: 20rpx 30rpx;
+  line-height: 50rpx;
+  font-size: 50rpx;
   color: #666;
 }
 .doc-description {
-  margin: 14px 0;
-  padding: 0 15px;
-  font-size: 14px;
-  line-height: 20px;
+  margin: 28rpx 0;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  line-height: 4rpx;
   color: #666;
 }
 .text-color{
@@ -173,7 +173,7 @@ page{
 .global-btn-block-padding {
   display: flex;
   width: 100%;
-  padding: 10px 15px; 
+  padding: 20rpx 30rpx; 
   justify-content: flex-end;
   position: fixed;
   bottom: 0;
@@ -253,7 +253,7 @@ page{
 
 .iconfont {
   font-family:"iconfont" !important;
-  font-size:16px;
+  font-size:32rpx;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -306,10 +306,10 @@ page{
   background:#fff;
   z-index:999;
   top:0;
-  font-size:14px;
+  font-size:28rpx;
   color:#666;
-  height:45px;
-  border-bottom:1px solid #eee;
+  height:90rpx;
+  border-bottom:2rpx solid #eee;
 }
 .cell {
   display:table-cell;
@@ -329,23 +329,23 @@ page{
 }
 /**攻略列表通用样式  **/
 .content_list{
-  margin: 0 10px 40px 10px;
+  margin: 0 20rpx 80rpx 20rpx;
   overflow-y: auto
 }
 .content_list .content_list_item{
   background-color: white;
-  border-top-left-radius:10px;
-  border-top-right-radius:10px;
-  margin:10px 0;
+  border-top-left-radius:20rpx;
+  border-top-right-radius:20rpx;
+  margin:20rpx 0;
 }
 .content_list .content_list_item .item_img{
-  border-top-left-radius:10px;
-  border-top-right-radius:10px;
+  border-top-left-radius:20rpx;
+  border-top-right-radius:20rpx;
 }
 .content_list .content_list_item .rank_name{
   display:table;
   margin:0.2rem 0 0 0;
-  padding:0 10px;
+  padding:0 20rpx;
   width:100%;
   border-bottom: 1px solid #efefef 
 }
@@ -368,8 +368,8 @@ page{
   display:table-cell;
   vertical-align:bottom;
   text-align:right;
-  padding-right:10px;
-  margin:20px 10px 0 0;
+  padding-right:20rpx;
+  margin:40rpx 20rpx 0 0;
   font-size:3.5vw;
   color:#c4c4c4;
   float: right
@@ -377,7 +377,7 @@ page{
 .content_list .content_list_item .rank_name .cell_right .btn_a{
   color:#999;
   font-size:3vw;
-  margin:0 0 0 10px;
+  margin:0 0 0 20rpx;
   display:inline-table;
 }
 .content_list .content_list_item .rank_name .cell_right .btn_a i{
@@ -387,7 +387,7 @@ page{
 }
 .content_list .content_list_item .cont_text{
   display: table;
-  padding: 10px
+  padding: 20rpx
 }
 .content_list .content_list_item .cont_text .cont_text_title{
   display: table;
@@ -399,16 +399,16 @@ page{
 }
 .content_list .content_list_item .cont_text .cont_text_title .cell_tags{
   display: table-cell;
-  font-size:9px;
+  font-size:18rpx;
   color:white;
 }
 .content_list .content_list_item .cont_text .cont_text_title .cell_tags .item_tag{
   display: inline-block;
-  margin: 0 2px;
+  margin: 0 4rpx;
   background-color:#3695E6;
-  border-radius:10px;
-  width:35px;
-  height:14px;
+  border-radius:20rpx;
+  width:70rpx;
+  height:28rpx;
   text-align:center;
 }
 .content_list .content_list_item .cont_text .cont_text_title .cell_time{
@@ -422,17 +422,21 @@ page{
 }
 .content_list .content_list_item .cont_text .cont_text_desc{
   color:#333;
-  font-size:14px;
+  font-size:28rpx;
   line-height:1.75;
-  max-height:70px;
+  max-height:140rpx;
   overflow:hidden;
   word-wrap:break-word;
   word-break:break-all;
-  margin:10px;
+  margin:20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .ico_img{
-  width: 12px;
-  height: 10px
+  width: 24rpx;
+  height: 20rpx;
+  margin-right: 10rpx
 }
 /**攻略列表样式结束**/
 
@@ -440,8 +444,9 @@ page{
 .help_list .list_item .rank_name{
   display:table;
   margin:0.2rem 0 0 0;
-  padding:0 10px;
-  width:100%;
+  /* padding:0 20rpx;  */
+  width:97%;
+  background: #fff;
 }
 .help_list .list_item .rank_name .cell_ico{
   display:table-cell;
@@ -449,12 +454,15 @@ page{
   padding:0;
   margin:0;
   width:12vw;
+  background: #fff;
 }
 .help_list .list_item .rank_name .cell_right{
   display:table-cell;
+  background: #fff;
+  
 }
 .help_list .list_item .rank_name .cell_right .cell_name{
-  vertical-align:middle;
+  vertical-align:bottom;
   padding:0;
   margin:0;
   font-size:3.5vw;
@@ -464,72 +472,107 @@ page{
 .help_list .list_item .rank_name .cell_right .cell_tag{
   vertical-align:middle;
   padding:0;
-  margin:0 10px;
-  font-size:9px;
+  margin:0 20rpx;
+  font-size:18rpx;
   color:white;
   background-color:red;
   text-align:center;
-  border-radius:10px;
-  height:14px;
+  border-radius:20rpx;
+  height:28rpx;
   display:inline-block;
-  width: 55px
+  width: 110rpx;
 }
 .help_list .list_item .rank_name .cell_right .cell_time{
   vertical-align:bottom;
   text-align:right;
-  padding-right:10px;
-  margin:10px;
-  font-size:13px;
+  padding-right:20rpx;
+  margin:20rpx;
+  font-size:26rpx;
   color:#c4c4c4;
   float:right;
   display:inline-block;
 }
 .help_list .list_content{
-  padding: 10px;
-  max-height: 60px
+  /* padding: 20rpx; */
+  max-height: 120rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #c4c4c4;
+  width: 97%
 }
 .help_list .list_content .cell_title{
-  font-size: 4vw
+  font-size: 4vw;
+  /* padding-left: 10rpx */
 }
 .help_list .list_content .cell_text{
   color:#333;
-  font-size:14px;
+  font-size:28rpx;
   line-height:1.75;
-  max-height:70px;
+  max-height:140rpx;
   overflow:hidden;
   word-wrap:break-word;
   word-break:break-all;
-  margin:10px;
+  margin:10rpx;
 }
 .help_list .list_btn{
   display: table;
-  margin: 10px;
-  width: 100%
+  width: 97%;
+  height: 20rpx;
+  background: #fff;
+   padding: 10rpx 0px; 
 }
 .help_list .list_btn .cell_statu{
   display: table-cell;
-  font-size:14px;
-  margin-left:10px;
-  background-color:green;
-  color:white;
+  font-size:24rpx;
+  margin-left:5rpx;
+  /* background-color:green;  */
+  color:#2c2c2c;
   vertical-align:middle;
-  width:55px;
+  width:110rpx; 
   text-align:center;
-  border-radius:10px;
+  border-radius:10rpx;
+  border:2rpx solid #bfbfbf;
 }
 .help_list .list_btn .cell_statu.finish{
-  background-color:#66ccff;
+  /* background-color:#66ccff;  */
+  border:2rpx solid #bfbfbf;
 }
 
 .help_list .list_btn .cell_right{
   display: table-cell;
-  font-size:10px;
+  font-size:20rpx;
   text-align:right;
-  padding-right:10px;
+  padding-right:20rpx;
   vertical-align: middle
 }
 .help_list .list_btn .cell_right .btn_a{
    display: inline-block;
-   padding: 0 10px
+   padding: 0 20rpx
 }
 
+.help_Money{
+  font-size:14rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:90rpx;
+  height:24rpx;
+  border:2rpx solid red;
+  border-radius:5rpx;
+  margin:0px 0px;
+  color:#fff;
+  background-color:red;
+  margin-left:10rpx;
+  margin-top:5rpx
+}
+
+.help_bottom{
+  width:100rpx; 
+  height: 40rpx;
+  font-size:3.0vw;
+  border:2rpx solid #FF8C00;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#FF8C00;
+  margin-right:16rpx
+}
