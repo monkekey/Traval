@@ -1,43 +1,45 @@
-<view class='content'>
+<view class='content' style="height: {{height}}px;">
   <view class="menu_tab table">
     <view class="cell {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">热门</view>
     <view class="cell {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">最新</view>
     <view class="cell {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">省钱</view>
     <view class="cell {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">我的</view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{selectType}}" range-key="{{'value'}}">
-      <view class="picker">
+      <view class="picker" style='text-align:center;margin-top:13px;'>
         <image src="../../images/down.png" class='down_img'></image>
       </view>
     </picker>
   </view><!--menu_tab_1-->
-  <view class='content_list'>
-     <view class='content_list_item' wx:for="{{pageData}}" wx:key="index">
-      <view class='item_img'>
-        <image src='{{item.attachment[0]}}' style='border-top-left-radius:10px;border-top-right-radius:10px;width:100%;'></image>
-      </view>
-      <view class='rank_name'>
-        <view class='cell_ico'>
-          <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
+  <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="lower">
+    <view class='content_list'>
+      <view class='content_list_item' wx:for="{{pageData}}" wx:key="index">
+        <view class='item_img'>
+          <image src='{{item.attachment[0]}}' style='border-top-left-radius:10px;border-top-right-radius:10px;width:100%;'></image>
         </view>
-        <view class='cell_nickName'>{{item.nickName}}</view>
-        <view class='cell_right'>
-          <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
-          <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
-          <view class='btn_a'><image src='../../images/hasUpvote.png' class='ico_img'></image>{{item.upvoteNum}}</view>
-        </view>
-      </view>
-      <view class='cont_text'>
-        <view class='cont_text_title'>
-          <view class='cell_title'>{{item.title}}</view>
-          <view class='cell_tags'>
-             <view class='item_tag' wx:for="{{item.tags}}" wx:for-item="tag" wx:for-index="idx" wx:key="{{idx}}">{{tag.value}}</view>
+        <view class='rank_name'>
+          <view class='cell_ico'>
+            <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
           </view>
-          <view class='cell_time'>{{item.createTime}}</view>
+          <view class='cell_nickName'>{{item.nickName}}</view>
+          <view class='cell_right'>
+            <view class='btn_a'><image src='../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
+            <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+            <view class='btn_a'><image src='../../images/hasUpvote.png' class='ico_img'></image>{{item.upvoteNum}}</view>
+          </view>
         </view>
-        <view class='cont_text_desc'>{{item.content}}</view>
+        <view class='cont_text'>
+          <view class='cont_text_title'>
+            <view class='cell_title'>{{item.title}}</view>
+            <view class='cell_tags'>
+              <view class='item_tag' wx:for="{{item.tags}}" wx:for-item="tag" wx:for-index="idx" wx:key="{{idx}}">{{tag.value}}</view>
+            </view>
+            <view class='cell_time'>{{item.createTime}}</view>
+          </view>
+          <view class='cont_text_desc'>{{item.content}}</view>
+        </view>
+        <view class='blank'></view>
       </view>
-      <view class='blank'></view>
-     </view>
-  </view>
+    </view>
+  </scroll-view>
 </view>
 

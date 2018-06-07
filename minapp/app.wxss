@@ -305,12 +305,10 @@ page{
   background:#fff;
   z-index:999;
   top:0;
-  font-size:4vw;
+  font-size:14px;
   color:#666;
-  padding:3vw 0;
-  height:5vw;
+  height:45px;
   border-bottom:1px solid #eee;
-  position: fixed
 }
 .cell {
   display:table-cell;
@@ -330,7 +328,7 @@ page{
 }
 /**攻略列表通用样式  **/
 .content_list{
-  margin: 45px 10px;
+  margin: 0 10px 40px 10px;
   overflow-y: auto
 }
 .content_list .content_list_item{
@@ -420,13 +418,17 @@ page{
 }
 .content_list .content_list_item .cont_text .cont_text_desc{
   color:#333;
-  font-size:3.8vw;
+  font-size:14px;
   line-height:1.75;
-  max-height:11vw;
+  max-height:70px;
   overflow:hidden;
   word-wrap:break-word;
   word-break:break-all;
   margin:10px;
+}
+.ico_img{
+  width: 15px;
+  height: 15px
 }
 
 
