@@ -9,14 +9,21 @@
           <view class='cell_name'>{{helpData.nickName}}</view>
           <view class='cell_time'>{{helpData.createTime}}</view>
         </view>
-        <view class="cell_right">
-          <block wx:if="{{helpData.flag==2}}">
-            <view class='text'>求助中</view>
-          </block>
-          <block wx:elif="{{helpData.flag==3}}">
-            <view class='text finish'>已完成</view>
-          </block>
+        <view style='display:flex;justify-content:space-around;align-items:center;' class="cell_right">
+          <view style='margin-left: 6rpx;background-color:{{helpData.flag==3 ? "#3ba6f2" : "#1afa29"}};width:15rpx;height:15rpx;border-radius:50%;'></view>
+          <view style='border-left: 2rpx solid #bfbfbf'>
+            <block wx:if="{{helpData.flag==2}}">
+                <view style='margin-left:6rpx'>求助中</view>
+            </block>
+            <block wx:elif="{{helpData.flag==3}}">
+              <view style='margin-left:6rpx'>已完成</view>
+            </block>
+          </view>
         </view>
+    </view>
+    <view class='head_btn'>
+      <view class='cell_btn'><image src='../../../images/eye.png' class='btn_img'></image>12</view>
+      <view class='cell_btn' bindtap='replyMainItem' data-item='{{pageData}}'><image src='../../../images/reply.png' class='btn_img'></image>60</view>
     </view>
     <view class='form_cont' style='margin-top:10px'>
         <view class='list_field'>
@@ -40,10 +47,12 @@
         </view>
       </view>
       <view class='last_btn' wx:if="{{helpData.flag==2}}">
-        <view class='btn_v'>领取任务</view>
+        <view class='btn_v' bindtap='getTask' data-data='{{helpData}}'>领取任务</view>
       </view>
+      <image src='../../../images/img_22.png' style='height:28rpx;'></image>
       <view class='blank'></view>
-      <view class='reply_list' style='margin-top:10px'>
+      <image src='../../../images/img_24.png' style='height:28rpx;'></image>
+      <view class='reply_list' style='margin:20rpx 0 40rpx 0'>
         <view class='reply_title'>全部回复</view>
         <view class='reply_item'>
           <view class='rank_name'>
@@ -63,10 +72,6 @@
         </view>
       </view>
     </scroll-view>
-  </view>
-  <view class='foot_operation foot_operation_2'>
-    <view class='cell_dz'><image src='../../../images/eye.png' class='btn_img'></image>12</view>
-    <view class='cell_hf' bindtap='replyMainItem' data-item='{{pageData}}'><image src='../../../images/reply.png' class='btn_img'></image>60</view>
   </view>
   <view class="hdxq_hf_box {{showReplyBox?'open':''}}">
     <view class='hdxq_hf_cont'>

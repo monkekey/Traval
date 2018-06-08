@@ -13,7 +13,7 @@
     </view>
     <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
     <view class='content_list' wx:if="{{selectedId==0}}">
-     <view class='content_list_item' wx:for="{{travleData}}" wx:key="index">
+     <view class='content_list_item' wx:for="{{travleData}}" wx:key="index" bindtap='toTravelDetailPage' data-item='{{item}}'>
         <view class='item_img'>
           <image src='{{item.attachment[0]}}' style='border-top-left-radius:10px;border-top-right-radius:10px;width:100%;'></image>
         </view>
@@ -41,7 +41,7 @@
         <view class='blank'></view>
       </view>
     </view>
-    <view class='help_list' wx:if="{{selectedId==1}}" style='margin-left:20rpx;'>
+    <view class='help_list' wx:if="{{selectedId==1}}">
        <view class='list_item' wx:for="{{helpData}}" wx:key="{{index}}" bindtap='toDetailPage' data-item='{{item}}'>
           <view class='rank_name'>
             <view class='cell_ico'>
@@ -89,8 +89,7 @@
               <view class='btn_a'><image src='../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
             </view>
           </view>
-          <view class='blank'></view>
-       </view>
+        </view>
     </view>
     <view class='help_list'  wx:if="{{selectedId==2}}">
        <view class='list_item' wx:for="{{questionData}}" wx:key="{{index}}">

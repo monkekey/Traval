@@ -1,2 +1,81 @@
-<!--pages/me/index.wxml-->
-<text>pages/me/index.wxml</text>
+<view>
+  <view class="cont" style="height: {{height}}px;">
+    <scroll-view scroll-y style="height: {{height}}px;">
+      <view class='cont_head'>
+        <view class='head_avatar'>
+          <block wx:if="{{userInfo != null}}">
+            <image src='{{userInfo.avatarUrl}}' class='avatar_img'></image>
+            <view class='cell_name'>{{userInfo.nickName}}</view>
+          </block>
+          <block wx:else>
+            <image src='../../images/test/img_5.png' class='avatar_img'></image>
+            <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" size='mini'>登录</button>
+          </block>
+        </view>
+        <view class='head_bot'>
+           <view class='cell_left' style='border-right:1px solid #efefef'>
+              <view class='zan-icon zan-icon-edit-data'></view>
+              <view class='cell_text'>我要发布</view>
+           </view>
+           <view class='cell_left'>
+              <view class='zan-icon zan-icon-after-sale'></view>
+              <view class='cell_text'>我要提现</view>
+           </view>
+        </view>
+      </view>
+      <view class='list_select'>
+        <view class='list_item'>
+          <view class='zan-icon zan-icon-question'></view>
+          <view class='cell_text'>我的求助</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+          </view>
+        </view>
+        <view class='list_item'>
+          <view class='zan-icon zan-icon-sign'></view>
+          <view class='cell_text'>我的攻略</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+          </view>
+        </view>
+        <view class='list_item'>
+          <view class='zan-icon zan-icon-pending-evaluate'></view>
+          <view class='cell_text'>我的回复</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+          </view>
+        </view>
+        <view class='list_item'>
+          <view class='zan-icon zan-icon-chat'></view>
+          <view class='cell_text'>我的消息</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+          </view>
+        </view>
+      </view>
+      <view class='list_select'>
+        <view class='list_item'>
+          <view class='zan-icon zan-icon-description' style='color:red'></view>
+          <view class='cell_text'>吐槽建议</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+          </view>
+        </view>
+        <view class='list_item'>
+          <view class='zan-icon zan-icon-balance-pay' style='color:red'></view>
+          <view class='cell_text'>打赏程序</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+          </view>
+        </view>
+        <view class='list_item'>
+          <view class='zan-icon zan-icon-checked' style='color:red'></view>
+          <view class='cell_text'>审核中心</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>  
+  </view>
+</view>

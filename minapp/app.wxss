@@ -441,12 +441,22 @@ page{
 /**攻略列表样式结束**/
 
 /**求助列表样式**/
+.help_list{
+  margin: 10px;
+}
+.help_list .list_item{
+  background:white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px
+}
 .help_list .list_item .rank_name{
   display:table;
   margin:0.2rem 0 0 0;
-  /* padding:0 20rpx;  */
-  width:97%;
+  padding:20rpx;
   background: #fff;
+  width: 670rpx;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px
 }
 .help_list .list_item .rank_name .cell_ico{
   display:table-cell;
@@ -493,11 +503,10 @@ page{
   display:inline-block;
 }
 .help_list .list_content{
-  /* padding: 20rpx; */
+  padding: 0 20rpx 20rpx 20rpx;
   max-height: 120rpx;
   background: #fff;
   border-bottom: 2rpx solid #c4c4c4;
-  width: 97%
 }
 .help_list .list_content .cell_title{
   font-size: 4vw;
@@ -518,7 +527,7 @@ page{
   width: 97%;
   height: 20rpx;
   background: #fff;
-   padding: 10rpx 0px; 
+   padding: 10rpx; 
 }
 .help_list .list_btn .cell_statu{
   display: table-cell;
@@ -557,12 +566,12 @@ page{
   width:90rpx;
   height:24rpx;
   border:2rpx solid red;
-  border-radius:5rpx;
   margin:0px 0px;
   color:#fff;
   background-color:red;
   margin-left:10rpx;
-  margin-top:5rpx
+  margin-top:5rpx;
+  border-radius: 20rpx
 }
 
 .help_bottom{
@@ -574,5 +583,6 @@ page{
   justify-content:center;
   align-items:center;
   color:#FF8C00;
-  margin-right:16rpx
+  margin-right:16rpx;
+  border-radius: 10rpx
 }

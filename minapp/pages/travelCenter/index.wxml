@@ -12,7 +12,7 @@
   </view><!--menu_tab_1-->
   <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="lower">
     <view class='content_list'>
-      <view class='content_list_item' wx:for="{{pageData}}" wx:key="index">
+      <view class='content_list_item' wx:for="{{pageData}}" wx:key="index" bindtap='toTravelDetailPage' data-item="{{item}}">
         <view class='item_img'>
           <image src='{{item.attachment[0]}}' style='border-top-left-radius:10px;border-top-right-radius:10px;width:100%;'></image>
         </view>

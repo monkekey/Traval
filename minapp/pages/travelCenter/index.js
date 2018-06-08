@@ -101,6 +101,17 @@ Page({
     ],
   },
   
+  /**
+   * 攻略详情页
+   */
+  toTravelDetailPage(e) {
+    console.log(e);
+    let item = e.currentTarget.dataset.item;
+    item = JSON.stringify(item);
+    wx.navigateTo({
+      url: 'detail/index?item=' + item,
+    })
+  },
 
   /**
    * tab切换事件

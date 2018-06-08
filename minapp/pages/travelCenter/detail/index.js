@@ -1,43 +1,61 @@
-// pages/helpCenter/detail/index.js
+// pages/travelCenter/detail/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    height: 0,
-    helpData:{},
-    showReplyBox: false
+    height:0,
+    travelData:{},
+    showReplyBox:false
   },
+  
   /**
-   * 领取任务
+   * 回复内容
    */
-  getTask(e){
-    wx.showToast({
-      title: '领取成功',
-      icon:'success'
-    })
+  replyMainItem(e) {
+    let item = e.currentTarget.dataset.item;
+    this.setData({
+      showReplyBox: true
+    });
   },
+
+  /**
+   * 取消回复
+   */
+  cancelBox(e) {
+    this.setData({
+      showReplyBox: false
+    });
+  },
+
+  /**
+   * 提交回复
+   */
+  commitReply(e) {
+    this.setData({
+      showReplyBox: false
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let item = options.item;
+    item = JSON.parse(item);
     let _this = this
     wx.getSystemInfo({
       success: function (res) {
         _this.setData({
-          height: res.windowHeight
+          height: res.windowHeight,
+          travelData:item
         })
       },
     });
-     let item = options.item;
-     item = JSON.parse(item);
-     this.setData({
-       helpData:item
-     });
-     wx.setNavigationBarTitle({
-       title: item.title+"--求助",
-     })
+    wx.setNavigationBarTitle({
+      title: item.title,
+    })
   },
 
   /**
@@ -87,33 +105,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  /**
-   * 回复内容
-   */
-  replyMainItem(e) {
-    let item = e.currentTarget.dataset.item;
-    this.setData({
-      showReplyBox: true
-    });
-  },
-
-  /**
-   * 取消回复
-   */
-  cancelBox(e) {
-    this.setData({
-      showReplyBox: false
-    });
-  },
-
-  /**
-   * 提交回复
-   */
-  commitReply(e) {
-    this.setData({
-      showReplyBox: false
-    });
   }
 })

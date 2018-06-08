@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/travelCenter/index",
+    "pages/travelCenter/detail/index",
     "pages/helpCenter/index",
     "pages/helpCenter/detail/index",
     "pages/me/index"

@@ -5,14 +5,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    height:0,
+    userInfo:null,
   },
-
+   
+  bindGetUserInfo: function (e) {
+    this.setData({
+      userInfo: e.detail.userInfo
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    let _this = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        _this.setData({
+          height: res.windowHeight
+        })
+      },
+    });
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              _this.setData({
+                userInfo: res.userInfo
+              })
+            }
+          })
+        } else {
+          console.log(res);
+        }
+      }
+    })
   },
 
   /**

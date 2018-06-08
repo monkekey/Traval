@@ -1,1 +1,69 @@
-/* pages/me/index.wxss */
+page {
+  background-color:#efefef;
+}
+.cont .cont_head{
+  background-color: white;
+  height:180px;
+}
+.cont .cont_head .head_avatar{
+  text-align:center;
+  vertical-align:middle;
+  font-size: 28rpx;
+  padding-top:100rpx
+}
+.cont .cont_head .head_avatar .avatar_img{
+  width:120rpx;
+  height:120rpx;
+  border-radius:100%;
+}
+button[size=mini] {
+  display:table;
+  line-height:2.3;
+  font-size:24rpx;
+  padding:0 1.34em;
+  width:120rpx;
+}
+.cont .cont_head .head_bot{
+  display: table;
+  width:750rpx;
+  text-align:center;
+  vertical-align:middle;
+  margin-top:20rpx;
+}
+.cont .cont_head .head_bot .cell_left{
+  display: table-cell
+}
+.cont .cont_head .head_bot .cell_right{
+  display: table-cell
+}
+.cell_text{
+  display: inline-block;
+  font-size: 26rpx;
+  color: #00ccff;
+  margin-left: 20rpx
+}
+.zan-icon {
+  color:red;
+}
+.list_select{
+  background-color:white;
+  margin-top:20rpx;
+}
+.list_select .list_item{
+  border-bottom:1px solid #efefef;
+  margin: 0 30rpx;
+  display: table;
+  width: 750rpx;
+  line-height: 70rpx
+}
+.list_select .list_item .zan-icon{
+   color:#3695E6;
+   display: table-cell;
+   width: 90rpx
+}
+.list_select .list_item .cell_text{
+  display: table-cell;
+  font-size: 26rpx;
+  color: #3C3C3C;
+  margin-left: 30rpx
+}

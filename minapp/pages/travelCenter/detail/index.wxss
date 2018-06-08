@@ -11,21 +11,20 @@
   font-size: 0.28rem;
   width: 45px;
 }
-.content .cont_head .cell_text{
-  display: table-cell;
-  vertical-align: middle;
-  color: #333;
-  font-size: 0.28rem;
-}
-.content .cont_head .cell_text .cell_name{
+.content .cont_head .cell_name{
   color: #222;
   font-size: 14px;
   line-height: 1.75;
+  display: table-cell;
+  vertical-align:middle;
 }
-.content .cont_head .cell_text .cell_time{
+.content .cont_head .cell_time{
   color: #777;
   font-size: 12px;
   line-height: 1.75;
+  display: table-cell;
+  text-align: right;
+  vertical-align:middle;
 }
 .content .cont_head .cell_right{
   display:table-cell;
@@ -51,86 +50,35 @@
 .content .cont_head .cell_right .text.finish{
   background-color:#66ccff;
 }
-.form_cont .list_field{
-  display: table;
-  font-size: 15px;
-  width: 750rpx;
-  margin: 5px 0
-}
-.form_cont .list_field .field_name{
-  display: table-cell;
-  width: 70px
-}
-.form_cont .list_field .field_value{
-  display: table-cell;
-  color:#666666;
-}
-.form_cont .list_field .field_desc_name{
-  
-}
-.form_cont .list_field .field_desc_cont{
-  color:#666666;
-  margin: 10px
-}
-.last_btn{
-  margin: 10px;
-  background-color:green;
-  color:white;
-  font-size:14px;
-  text-align: center;
-  vertical-align: middle;
-  margin-bottom:30px;
-  border-radius:10px;
-  height:40px;
-  line-height:40px;
-}
-.last_btn .btn_v{
-
-}
-.reply_list .reply_title{
-  font-size:15px;
-  line-height:30px;
-  border-bottom:1px solid #F7F7F6;
-}
-.reply_list .reply_item{
-  margin-top: 10px;
-  border-bottom:2rpx solid #c4c4c4;
-}
-.reply_list .reply_item .rank_name{
-  display: table;
-  width: 97%
-}
-.reply_list .reply_item .rank_name .cell_ico{
-  display: table-cell;
-  width: 45px
-}
-.reply_list .reply_item .rank_name .cell_name{
-  display: table-cell;
-  font-size: 14px;
-  vertical-align:middle;
-}
-.reply_list .reply_item .rank_name .cell_time{
-  display: table-cell;
-  font-size: 14px;
-  color:#777;
-  vertical-align:middle;
+.head_btn{
+  font-size:24rpx;
+  border-bottom:1px solid #c4c4c4;
+  width:100%;
   text-align:right;
+  margin-top: 20rpx
 }
-.reply_list .reply_item .reply_cont{
-  color:#888888;
-  vertical-align:middle;
-  font-size:14px;
-  margin:10px;
+.head_btn .cell_btn{
+  display: inline-block;
+  margin-left: 20rpx
 }
-.reply_list .reply_item .botton_btn{
-  font-size:10px;
-  display:table;
-  width: 97%;
-  text-align:right;
-}
-.reply_list .reply_item .botton_btn .btn_a{
+.head_btn .cell_tags{
   display:inline-block;
-  margin: 0 10px
+  font-size:18rpx;
+  color:white;
+  float: left
+}
+.head_btn .cell_tags .item_tag{
+  display:inline-block;
+  margin:0 4rpx;
+  background-color:#3695E6;
+  border-radius:20rpx;
+  width:70rpx;
+  height:28rpx;
+  text-align:center;
+}
+.btn_img{
+  width:24rpx;
+  height:24rpx;
 }
 .hdxq_hf_box {
     top: 0;
@@ -193,20 +141,55 @@
 .hdxq_hf_box .hdxq_hf_cont .tb_btn~.qx_btn, .hdxq_hf_box .hdxq_hf_cont .tb_btn~.fs_btn {
     margin: 0.1rem 0.3rem 0 0.3rem;
 }
-.mar_img{
-  height:15px;
+.reply_list .reply_title{
+  font-size:15px;
+  line-height:30px;
+  border-bottom:1px solid #F7F7F6;
 }
-.btn_img{
-  width:24rpx;
-  height:24rpx;
+.reply_list .reply_item{
+  margin-top: 10px;
+  border-bottom:2rpx solid #c4c4c4;
 }
-.head_btn{
-  font-size:24rpx;
-  border-bottom:1px solid #c4c4c4;
-  width:97%;
+.reply_list .reply_item .rank_name{
+  display: table;
+  width: 97%
+}
+.reply_list .reply_item .rank_name .cell_ico{
+  display: table-cell;
+  width: 45px
+}
+.reply_list .reply_item .rank_name .cell_name{
+  display: table-cell;
+  font-size: 14px;
+  vertical-align:middle;
+}
+.reply_list .reply_item .rank_name .cell_time{
+  display: table-cell;
+  font-size: 24rpx;
+  color:#777;
+  vertical-align:middle;
   text-align:right;
 }
-.head_btn .cell_btn{
-  display: inline-block;
-  margin-left: 20rpx
+.reply_list .reply_item .reply_cont{
+  color:#888888;
+  vertical-align:middle;
+  font-size:14px;
+  margin:10px;
+}
+.reply_list .reply_item .botton_btn{
+  font-size:10px;
+  display:table;
+  width: 97%;
+  text-align:right;
+}
+.reply_list .reply_item .botton_btn .btn_a{
+  display:inline-block;
+  margin: 0 10px
+}
+.cont_text .text_box{
+  font-size:28rpx;
+  color:#999;
+  line-height:40rpx;
+  margin:0 0 0 0;
+  padding:10rpx 0 0 0;
 }

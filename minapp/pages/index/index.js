@@ -212,6 +212,18 @@ const pageData ={
   },
 
   /**
+   * 攻略详情页
+   */
+  toTravelDetailPage(e) {
+    console.log(e);
+    let item = e.currentTarget.dataset.item;
+    item = JSON.stringify(item);
+    wx.navigateTo({
+      url: '../travelCenter/detail/index?item='+item,
+    })
+  },
+
+  /**
    * 跳转到详情页
    */
   toDetailPage(e) {
@@ -238,7 +250,6 @@ const pageData ={
     _this.setData({
       [`${componentId}.selectedId`]: 0
     });
-
   },
 
   /**
