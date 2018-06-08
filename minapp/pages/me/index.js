@@ -93,5 +93,16 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 我的发布页面
+   */
+  toMyReleasePage(e){
+    console.log(e);
+    let type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: 'release/index?type='+type,
+    })
   }
 })

@@ -5,7 +5,8 @@
     "pages/travelCenter/detail/index",
     "pages/helpCenter/index",
     "pages/helpCenter/detail/index",
-    "pages/me/index"
+    "pages/me/index",
+    "pages/me/release/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

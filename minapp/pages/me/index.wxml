@@ -24,32 +24,39 @@
         </view>
       </view>
       <view class='list_select'>
-        <view class='list_item'>
-          <view class='zan-icon zan-icon-question'></view>
+        <view class='list_item' bindtap='toMyReleasePage' data-type="help">
+          <view class='zan-icon zan-icon-pending-deliver'></view>
           <view class='cell_text'>我的求助</view>
           <view style='display: table-cell;'>
-             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
-        <view class='list_item'>
+        <view class='list_item' bindtap='toMyReleasePage' data-type="tips">
           <view class='zan-icon zan-icon-sign'></view>
           <view class='cell_text'>我的攻略</view>
           <view style='display: table-cell;'>
-             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
+          </view>
+        </view>
+        <view class='list_item' bindtap='toMyReleasePage' data-type="ques">
+          <view class='zan-icon zan-icon-question'></view>
+          <view class='cell_text'>我的问答</view>
+          <view style='display: table-cell;'>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
         <view class='list_item'>
           <view class='zan-icon zan-icon-pending-evaluate'></view>
           <view class='cell_text'>我的回复</view>
           <view style='display: table-cell;'>
-             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
         <view class='list_item'>
           <view class='zan-icon zan-icon-chat'></view>
           <view class='cell_text'>我的消息</view>
           <view style='display: table-cell;'>
-             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
       </view>
@@ -58,21 +65,21 @@
           <view class='zan-icon zan-icon-description' style='color:red'></view>
           <view class='cell_text'>吐槽建议</view>
           <view style='display: table-cell;'>
-             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
         <view class='list_item'>
           <view class='zan-icon zan-icon-balance-pay' style='color:red'></view>
           <view class='cell_text'>打赏程序</view>
           <view style='display: table-cell;'>
-             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
         <view class='list_item'>
           <view class='zan-icon zan-icon-checked' style='color:red'></view>
           <view class='cell_text'>审核中心</view>
           <view style='display: table-cell;'>
-             <image src='../../images/img_1.png' style='width:20rpx;height:20rpx'></image>
+             <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
       </view>
