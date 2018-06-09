@@ -1,0 +1,23 @@
+<view class='content' style='height:{{height}}px'>
+      <scroll-view scroll-y style='height:{{height}}px'>
+        <form bindsubmit="formSubmit">
+          <view class='field_item'>
+            <view class='field_name' style='color:#919191'>类型<text style='color:red'>*</text></view>
+            <view class='field_value'>
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{suggestionType}}" range-key="{{'value'}}">
+                  <view class="picker">
+                    <input placeholder='请选择建议类型' value='{{suggestionTypeName}}' placeholder-style="color:black"></input>
+                  </view>
+                </picker>
+            </view>
+          </view>
+          <view class='field_item'>
+            <view class='field_name' style='color:#919191'>内容<text style='color:red'>*</text></view>
+            <view class='field_value'>
+                <textarea placeholder='请输入内容' placeholder-style="color:black"></textarea>
+            </view>
+          </view>
+          <view class="btn_box"><button formType="submit" class="tj_btn" loading="{{onLoading}}">提交</button></view><!--btn_box-->
+        </form>
+      </scroll-view>
+   </view>

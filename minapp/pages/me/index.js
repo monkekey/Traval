@@ -122,5 +122,23 @@ Page({
     wx.navigateTo({
       url: 'cash/index',
     })
-  }
+  },
+
+  /**
+   * 吐槽建议
+   */
+  toSuggestionPage(e) {
+    wx.navigateTo({
+      url: 'suggestion/index',
+    })
+  },
+
+  /**
+   * 打赏
+   */
+  toRewardPage(e) {
+    wx.navigateTo({
+      url: 'reward/index',
+    })
+  },
 })

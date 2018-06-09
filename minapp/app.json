@@ -8,7 +8,9 @@
     "pages/me/index",
     "pages/me/myReleased/index",
     "pages/me/release/index",
-    "pages/me/cash/index"
+    "pages/me/cash/index",
+    "pages/me/suggestion/index",
+    "pages/me/reward/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

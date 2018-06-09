@@ -1,0 +1,29 @@
+.content{
+  margin: 20rpx
+}
+.content .field_item{
+  border-bottom: 1px solid #efefef;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  padding: 20rpx 0
+}
+.content .field_item .field_value{
+  font-size: 28rpx
+}
+.btn_box {
+  bottom:0;
+  margin:0;
+  padding:0.3rem 0.3rem;
+  background:#fff;
+  z-index:99;
+}
+.btn_box .tj_btn {
+  display:block;
+  padding:0.2rem;
+  text-align:center;
+  background:#464356;
+  color:#fff;
+  font-size:4vw;
+  border-radius:3px;
+}
+

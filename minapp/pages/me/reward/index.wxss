@@ -1,0 +1,22 @@
+.btn_box {
+  bottom:0;
+  margin:0;
+  padding:0.3rem 0.3rem;
+  background:#fff;
+  z-index:99;
+}
+.btn_box .tj_btn {
+  display:block;
+  padding:0.2rem;
+  text-align:center;
+  background:#FF9800;
+  color:#fff;
+  font-size:26rpx;
+  border-radius:3px;
+  width:58vw;
+}
+.logo_img{
+  width:160rpx;
+  height:160rpx;
+  border-radius:100%;
+}

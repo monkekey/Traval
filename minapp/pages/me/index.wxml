@@ -61,14 +61,14 @@
         </view>
       </view>
       <view class='list_select'>
-        <view class='list_item'>
+        <view class='list_item' bindtap='toSuggestionPage'>
           <view class='zan-icon zan-icon-description' style='color:red'></view>
           <view class='cell_text'>吐槽建议</view>
           <view style='display: table-cell;'>
              <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
-        <view class='list_item'>
+        <view class='list_item' bindtap='toRewardPage'>
           <view class='zan-icon zan-icon-balance-pay' style='color:red'></view>
           <view class='cell_text'>打赏程序</view>
           <view style='display: table-cell;'>
