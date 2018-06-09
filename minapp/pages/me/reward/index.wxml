@@ -4,7 +4,7 @@
     <view class='reward_title'>奖赏小程序开发者</view>
     <view style='border-bottom:1px solid #BBBBBB;margin:20rpx 22vw;'>
       <view class='zan-icon zan-icon-gold-coin' style='color:red'></view>
-      <view  style='display:inline-block;vertical-align:middle;margin-left:20rpx'>
+      <view  style='vertical-align:middle;margin-left:20rpx'>
         <input placeholder='您的赏赐金额'></input>
       </view>  
     </view>
