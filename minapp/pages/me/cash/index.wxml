@@ -1,0 +1,18 @@
+<view style="height: {{height}}px;">
+   <scroll-view scroll-y style="height: {{height}}px;">
+      <view class='content'>
+         <view class='title'>提现到微信钱包</view>
+         <view class='cont_cash'>
+           <view class='field_name'>提现金额</view>
+           <view>
+            <view class='zan-icon zan-icon-gold-coin' style='color:red'></view>
+            <view  style='display:inline-block;vertical-align:middle;margin-left:20rpx;'>
+              <input placeholder='请输入提现金额'></input>
+            </view>  
+           </view>
+         </view>
+         <view class='cash_tips'>当前可提现金额为10.00元</view>
+         <view class="btn_box"><button formType="submit" class="tj_btn" loading="{{onLoading}}" size='mini'>提现</button></view><!--btn_box-->
+      </view>
+   </scroll-view>
+</view>

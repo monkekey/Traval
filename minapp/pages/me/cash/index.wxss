@@ -1,0 +1,34 @@
+page {
+  background-color:#efefef;
+}
+.btn_box {
+  bottom:0;
+  margin:0;
+  padding:0.3rem 0.3rem;
+  background:#fff;
+  z-index:99;
+}
+.btn_box .tj_btn {
+  display:block;
+  text-align:center;
+  background:green;
+  color:#fff;
+  font-size:26rpx;
+  border-radius:3px;
+}
+.content{
+  font-size:30rpx;
+  background-color:white;
+  margin:20rpx;
+  border-radius:20rpx;
+  padding: 20rpx;
+  line-height: 80rpx
+}
+.title {
+  font-family:"微软雅黑";
+  font-size:30rpx;
+  text-align: center;
+}
+.cont_cash{
+  border-bottom: 1px solid #BBBBBB
+}

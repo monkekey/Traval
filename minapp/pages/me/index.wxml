@@ -13,11 +13,11 @@
           </block>
         </view>
         <view class='head_bot'>
-           <view class='cell_left' style='border-right:1px solid #efefef'>
+           <view class='cell_left' style='border-right:1px solid #efefef' bindtap='release'>
               <view class='zan-icon zan-icon-edit-data'></view>
               <view class='cell_text'>我要发布</view>
            </view>
-           <view class='cell_left'>
+           <view class='cell_left' bindtap='toCashPage'>
               <view class='zan-icon zan-icon-after-sale'></view>
               <view class='cell_text'>我要提现</view>
            </view>

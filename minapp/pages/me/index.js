@@ -43,7 +43,7 @@ Page({
           console.log(res);
         }
       }
-    })
+    });
   },
 
   /**
@@ -102,7 +102,25 @@ Page({
     console.log(e);
     let type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: 'release/index?type='+type,
+      url: 'myReleased/index?type='+type,
+    })
+  },
+  
+  /**
+   * 发布
+   */
+  release(){
+    wx.navigateTo({
+      url: 'release/index',
+    })
+  },
+  
+  /**
+   * 提现
+   */
+  toCashPage(e){
+    wx.navigateTo({
+      url: 'cash/index',
     })
   }
 })

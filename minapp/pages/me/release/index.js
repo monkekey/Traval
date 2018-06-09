@@ -1,253 +1,80 @@
-var Zan = require('../../../zanui/index')
-
-const pageData ={
+// pages/me/released/index.js
+Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-    height: 0,
-    tab:{
-      list:[{
-        id: 0,
-        title:'我的攻略'
-      },{
-        id: 1,
-        title: '我的求助'
-      },{
-        id: 2,
-        title: '我的问答'
-      }]
+    height:0,
+    selectedType:'tips',
+    selectType:[
+      {
+        id:'tips',
+        value:'发布攻略'
+      },
+      {
+        id: 'help',
+        value: '发布求助'
+      },
+      {
+        id: 'question',
+        value: '提问'
+      },
+    ],
+    tipsType: [
+      {
+        id: 'onePerson',
+        value: '个人游'
+      },
+      {
+        id: 'parental',
+        value: '亲子游'
+      },
+      {
+        id: 'lovers',
+        value: '情侣游'
+      },
+      {
+        id: 'team',
+        value: '团体游'
+      },
+    ],
+    Radioitems:[
+      {
+        id:'findPerson',
+        value:'寻人'
+      },
+      {
+        id: 'findThings',
+        value: '寻物'
+      },
+    ],
+    radioReward:[
+      {
+        id:'yes',
+        value:'设置'
+      },
+      {
+        id:'no',
+        value:'不设置'
+      }
+    ],
+    region: ['广东省', '广州市', '海珠区'],
+    TravelPhonto:[],
+    releaseTypeName:'',
+    formData:{
+       releaseType:''
     },
-    selectedId: 0,
-    travleData: [
-      {
-        id: '1234567989',
-        attachment: [
-          '../../../images/test/img_1.jpg'
-        ],
-        browseNum: '145',
-        replyNum: '60',
-        upvoteNum: '87',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        tags: [
-          {
-            id: 'lovers',
-            value: '情侣游'
-          },
-          {
-            id: 'team',
-            value: '团体游'
-          },
-        ],
-        createTime: "2018-05-23 12:23",
-        content: "我们时间较充足，所以计划的是5天深度游玩三亚。全程连住四星级酒店4晚、门票、交通、当地导游费、吃饭等全都包含了,不留遗憾的是: 三亚必玩景点蜈支洲岛、妈祖庙、情人桥、观日岩、生命井、亚龙湾、椰梦长廊、天堂国家森林公园、天涯海角、南海观音都去过了，真正的感受到了海南之蓝，梦镜般的旅行。",
-        title: '三亚自由行攻略'
-      },
-      {
-        id: '1234567989',
-        attachment: [
-          '../../../images/test/img_1.jpg'
-        ],
-        browseNum: '145',
-        replyNum: '60',
-        upvoteNum: '87',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        tags: [
-          {
-            id: 'lovers',
-            value: '情侣游'
-          },
-          {
-            id: 'team',
-            value: '团体游'
-          },
-        ],
-        createTime: "2018-05-23 12:23",
-        content: "我们时间较充足，所以计划的是5天深度游玩三亚。全程连住四星级酒店4晚、门票、交通、当地导游费、吃饭等全都包含了,不留遗憾的是: 三亚必玩景点蜈支洲岛、妈祖庙、情人桥、观日岩、生命井、亚龙湾、椰梦长廊、天堂国家森林公园、天涯海角、南海观音都去过了，真正的感受到了海南之蓝，梦镜般的旅行。",
-        title: '三亚自由行攻略'
-      },
-      {
-        id: '1234567989',
-        attachment: [
-          '../../../images/test/img_1.jpg'
-        ],
-        browseNum: '145',
-        replyNum: '60',
-        upvoteNum: '87',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        tags: [
-          {
-            id: 'lovers',
-            value: '情侣游'
-          },
-          {
-            id: 'team',
-            value: '团体游'
-          },
-        ],
-        createTime: "2018-05-23 12:23",
-        content: "我们时间较充足，所以计划的是5天深度游玩三亚。全程连住四星级酒店4晚、门票、交通、当地导游费、吃饭等全都包含了,不留遗憾的是: 三亚必玩景点蜈支洲岛、妈祖庙、情人桥、观日岩、生命井、亚龙湾、椰梦长廊、天堂国家森林公园、天涯海角、南海观音都去过了，真正的感受到了海南之蓝，梦镜般的旅行。",
-        title: '三亚自由行攻略'
-      },
-    ],
-    helpData:[
-      {
-        id:'123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "5.23日在十字路口看美女，回头就不见了",
-        title: '狗狗丢失',
-        reward:null,
-        flag:2
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "5.23日在十字路口看美女，回头就不见了",
-        title: '狗狗丢失',
-        reward: null,
-        flag: 3
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "5.23日在十字路口看美女，回头就不见了",
-        title: '狗狗丢失',
-        reward: 10,
-        flag: 3
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "5.23日在十字路口看美女，回头就不见了",
-        title: '狗狗丢失',
-        reward: null,
-        flag: 2
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "5.23日在十字路口看美女，回头就不见了",
-        title: '狗狗丢失',
-        reward: 520,
-        flag: 2
-      },
-    ],
-    questionData: [
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "去北欧看北极光，哪个国家更好",
-        title: '北欧在哪里看北极光',
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "去北欧看北极光，哪个国家更好",
-        title: '北欧在哪里看北极光',
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "去北欧看北极光，哪个国家更好",
-        title: '北欧在哪里看北极光',
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "去北欧看北极光，哪个国家更好",
-        title: '北欧在哪里看北极光',
-      },
-      {
-        id: '123456',
-        browseNum: '145',
-        replyNum: '60',
-        avatar: '../../../images/test/img_5.png',
-        nickName: '哼哼哈嘿',
-        createTime: "2018-05-23 12:23",
-        content: "去北欧看北极光，哪个国家更好",
-        title: '北欧在哪里看北极光',
-      },
-    ]
-  },
-
-  /**
-   * 攻略详情页
-   */
-  toTravelDetailPage(e) {
-    console.log(e);
-    let item = e.currentTarget.dataset.item;
-    item = JSON.stringify(item);
-    wx.navigateTo({
-      url: '../../travelCenter/detail/index?item='+item,
-    })
-  },
-
-  /**
-   * 跳转到详情页
-   */
-  toDetailPage(e) {
-    let item = e.currentTarget.dataset.item;
-    item = JSON.stringify(item);
-    wx.navigateTo({
-      url: '../../helpCenter/detail/index?item=' + item,
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '发布',
+    });
     let _this = this;
-    let type = options.type;
-    let selectedId=0;
-    if(type=='help'){
-      selectedId = 1;
-    }else if(type=='tips'){
-      selectedId = 0;
-    }else if(type=='ques'){
-      selectedId = 2;
-    }
     wx.getSystemInfo({
       success: function (res) {
         _this.setData({
@@ -255,77 +82,115 @@ const pageData ={
         })
       },
     });
-    let componentId="tab";
-    _this.setData({
-      [`${componentId}.selectedId`]: selectedId,
-      selectedId: selectedId
-    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+  
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+  
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+  
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+  
+  },
 
-  },
-  lower: function (e) {
-    console.log(e)
-  },
-  handleZanTabChange(e) {
+  /**
+   * 类型选择
+   */
+  bindPickerChange(e){
     console.log(e);
-    var componentId = e.componentId;
-    var selectedId = e.selectedId;
+    let index = e.detail.value;
+    let data = this.data.selectType;
+    let obj = data[index];
+    console.log(obj)
     this.setData({
-      [`${componentId}.selectedId`]: selectedId,
-      selectedId: selectedId
+      formData: {
+        releaseType: obj.id
+      },
+      releaseTypeName:obj.value,
+      selectedType: obj.id
     });
-    let num = selectedId
-    let _this = this
-    
+  },
+
+  /**
+   * 地区联动选择
+   */
+  bindRegionChange(e){
+    console.log(e);
+  },
+
+  /**
+ * 从相册选择照片或拍照
+ */
+  chooseImg(e) {
+    let phontos = this.data.TravelPhonto;
+    let self = this;
+    wx.chooseImage({
+      count: 4, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log(res);
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        let tempFilePaths = res.tempFilePaths;
+        phontos.push(tempFilePaths);
+        self.setData({
+          TravelPhonto: phontos
+        });
+      }
+    })
+  },
+  
+  /**
+   * 是否设置激励金
+   */
+  radioRewardChange(e){
+     console.log(e)
+  },
+  
+  /**
+   * 求助类型
+   */
+  radioChange(e){
+    console.log(e)
   }
-
-}
-
-Page(Object.assign(pageData, {}, Zan.Tab))
+})

@@ -1,113 +1,149 @@
-<import src="/zanui/tab/index.wxml" />
-
-<view style="height: {{height}}px;">
-  <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="lower">
-    <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
-    <view class='content_list' wx:if="{{selectedId==0}}">
-     <view class='content_list_item' wx:for="{{travleData}}" wx:key="index" bindtap='toTravelDetailPage' data-item='{{item}}'>
-        <view class='item_img'>
-          <image src='{{item.attachment[0]}}' style='border-top-left-radius:10px;border-top-right-radius:10px;width:100%;'></image>
-        </view>
-        <view class='rank_name'>
-          <view class='cell_ico'>
-            <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
-          </view>
-          <view class='cell_nickName'>{{item.nickName}}</view>
-          <view class='cell_right'>
-            <view class='btn_a'><image src='../../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
-            <view class='btn_a'><image src='../../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
-            <view class='btn_a'><image src='../../../images/hasUpvote.png' class='ico_img'></image>{{item.upvoteNum}}</view>
-          </view>
-        </view>
-        <view class='cont_text'>
-          <view class='cont_text_title'>
-            <view class='cell_title'>{{item.title}}</view>
-            <view class='cell_tags'>
-              <view class='item_tag' wx:for="{{item.tags}}" wx:for-item="tag" wx:for-index="idx" wx:key="{{idx}}">{{tag.value}}</view>
-            </view>
-            <view class='cell_time'>{{item.createTime}}</view>
-          </view>
-          <view class='cont_text_desc'>{{item.content}}</view>
-        </view>
-        <view class='blank'></view>
-      </view>
-    </view>
-    <view class='help_list' wx:if="{{selectedId==1}}">
-       <view class='list_item' wx:for="{{helpData}}" wx:key="{{index}}" bindtap='toDetailPage' data-item='{{item}}'>
-          <view class='rank_name'>
-            <view class='cell_ico'>
-               <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
-             </view>
-             <view class='cell_right' style='display:flex;justify-content:space-between;align-items:center;'>
-              <view style='padding-top:15rpx'>
-                <view style='display:flex;'>
-                  <view style='font-size:3.5vw;'>{{item.nickName}}</view>
-                  <view class='help_Money' wx:if="{{item.reward != null && item.reward != ''}}">
-                    <view>悬赏{{item.reward}}元</view>
+<view>
+   <view class='content' style='height:{{height}}px'>
+      <scroll-view scroll-y style='height:{{height}}px'>
+        <form bindsubmit="formSubmit">
+          <view class='field_item'>
+            <view class='field_name' style='color:#919191'>类型<text style='color:red'>*</text></view>
+            <view class='field_value'>
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{selectType}}" range-key="{{'value'}}">
+                  <view class="picker">
+                    <input placeholder='请选择发布类型' value='{{releaseTypeName}}' placeholder-style="color:black"></input>
                   </view>
-                </view>
-                
-                <view style='margin-top: 5rpx;font-size:3.2vw;color:#c4c4c4;'>{{item.createTime}}</view>
-              </view>
-              <view>
-                <view class='help_bottom'>
-                  <view style='height: 40rpx;display:flex;align-items:center;'>
-                    <image style='width:20rpx;height:20rpx' src='../../../images/hand.png'></image>
+                </picker>
+            </view>
+          </view>
+          <view class='field_item'>
+            <view class='field_name' style='color:#919191'>标题<text style='color:red'>*</text></view>
+            <view class='field_value'>
+                <input placeholder='请输入标题' placeholder-style="color:black"></input>
+            </view>
+          </view>
+
+          <!--攻略部分-->
+          <view wx:if="{{selectedType=='tips'}}">
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>攻略类型<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                  <view class='checkbox_item'>
+                    <checkbox-group bindchange="checkboxChange">
+                      <label class="checkbox" wx:for="{{tipsType}}">
+                        <checkbox value="{{item.id}}" checked="{{item.checked}}" style='transform:scale(0.7);'/>{{item.value}}
+                      </label>
+                    </checkbox-group>
                   </view>
-                  <view style='margin-left:10rpx'>帮 助</view>
-                </view>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>区域<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                  <view class="picker">
+                    <input placeholder='请选择目的地所在区域'  placeholder-style="color:black"></input>
+                  </view>
+                </picker>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>详细地址<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <input placeholder='请输入您的目的地详细地址' placeholder-style="color:black"></input>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>途径地点<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <input placeholder='多个地点用逗号隔开' placeholder-style="color:black"></input>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>游感<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <textarea placeholder='分享您的攻略及游玩人文感受' placeholder-style="color:black"></textarea>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>途中美照<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <view wx:for="{{TravelPhonto}}" wx:key="{{index}}" style='display:inline-block;margin:0 20rpx;'><image src='{{item}}' style='width:105rpx;height:100rpx'></image></view>
+                <view bindtap='chooseImg' class='a_upload'>+</view>
               </view>
             </view>
           </view>
-          <view class='list_content'>
-            <view class='cell_title' style='margin-left: 20rpx;padding-top:10rpx'>{{item.title}}</view>
-            <view class='cell_text' style='margin:0px 0px 0px 30rpx;color:#8a8a8a'>{{item.content}}</view>
-          </view>
-          <view class='list_btn'>
-            <view style='display:flex;justify-content:space-around;align-items:center;' class="cell_statu {{item.flag==3?'finish':''}}">
-              <view style='margin-left: 6rpx;background-color:{{item.flag==3 ? "#3ba6f2" : "#1afa29"}};width:15rpx;height:15rpx;border-radius:50%;'></view>
-              <view style='border-left: 2rpx solid #bfbfbf'>
-                <block wx:if="{{item.flag==2}}">
-                   <view style='margin-left:6rpx'>求助中</view>
-                </block>
-                <block wx:elif="{{item.flag==3}}">
-                  <view style='margin-left:6rpx'>已完成</view>
-                </block>
+
+          <!--求助-->
+          <view wx:if="{{selectedType=='help'}}">
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>求助类型<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                  <view class='checkbox_item'>
+                    <radio-group class="radio-group" bindchange="radioChange">
+                      <label class="radio" wx:for="{{Radioitems}}">
+                        <radio value="{{item.id}}" checked="{{item.checked}}"  style='transform:scale(0.7);'/>{{item.value}}
+                      </label>
+                    </radio-group>
+                  </view>
               </view>
             </view>
-            <view class='cell_right'>
-              <view class='btn_a'><image src='../../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
-              <view class='btn_a'><image src='../../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>区域<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                  <view class="picker">
+                    <input placeholder='请选择遗失区域' placeholder-style="color:black"></input>
+                  </view>
+                </picker>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>详细地址<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <input placeholder='请输入遗失详细地址' placeholder-style="color:black"></input>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>激励金<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                  <view class='checkbox_item'>
+                    <radio-group class="radio-group" bindchange="radioRewardChange">
+                      <label class="radio" wx:for="{{radioReward}}">
+                        <radio value="{{item.id}}" checked="{{item.checked}}"  style='transform:scale(0.7);'/>{{item.value}}
+                      </label>
+                    </radio-group>
+                  </view>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>金额<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                  <input placeholder='请输入金额' placeholder-style="color:black"></input>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>备注<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <textarea placeholder='提供更多线索' placeholder-style="color:black"></textarea>
+              </view>
+            </view>
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>相关图片<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <view wx:for="{{TravelPhonto}}" wx:key="{{index}}" style='display:inline-block;margin:0 20rpx;'><image src='{{item}}' style='width:105rpx;height:100rpx'></image></view>
+                <view bindtap='chooseImg' class='a_upload'>+</view>
+              </view>
             </view>
           </view>
-        </view>
-    </view>
-    <view class='help_list'  wx:if="{{selectedId==2}}">
-       <view class='list_item' wx:for="{{questionData}}" wx:key="{{index}}">
-          <view class='rank_name'>
-             <view class='cell_ico'>
-               <image src='{{item.avatar}}' style='width:10vw;height:10vw;border-radius:100%;'></image>
-             </view>
-             <view class='cell_right'>
-               <view class='cell_name'>{{item.nickName}}</view>
-               <view class='cell_time'>{{item.createTime}}</view>
-             </view>
-          </view>
-          <view class='list_content'>
-            <view class='cell_title'>{{item.title}}</view>
-            <view class='cell_text'>{{item.content}}</view>
-          </view>
-          <view class='list_btn'>
-             <view class='cell_right'>
-              <view class='btn_a'><image src='../../../images/eye.png' class='ico_img'></image>{{item.browseNum}}</view>
-              <view class='btn_a'><image src='../../../images/reply.png' class='ico_img'></image>{{item.replyNum}}</view>
+
+          <!--问答提问-->
+          <view wx:if="{{selectedType=='question'}}">
+            <view class='field_item'>
+              <view class='field_name' style='color:#919191'>内容<text style='color:red'>*</text></view>
+              <view class='field_value'>
+                <textarea placeholder='说出你的疑惑，大家才能更好的为你解答哦' placeholder-style="color:black"></textarea>
+              </view>
             </view>
           </view>
-          <view class='blank'></view>
-       </view>
-    </view>
-
-    <view class='bottomFont'>~我可是个有底线的小程序~</view>
-
-  </scroll-view>
+          <view class="btn_box"><button formType="submit" class="tj_btn" loading="{{onLoading}}">发布</button></view><!--btn_box-->
+        </form>
+      </scroll-view>
+   </view>
 </view>

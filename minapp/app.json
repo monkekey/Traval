@@ -6,7 +6,9 @@
     "pages/helpCenter/index",
     "pages/helpCenter/detail/index",
     "pages/me/index",
-    "pages/me/release/index"
+    "pages/me/myReleased/index",
+    "pages/me/release/index",
+    "pages/me/cash/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
