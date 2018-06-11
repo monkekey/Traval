@@ -75,7 +75,7 @@
              <image src='../../images/img_1.png' style='width:30rpx;height:30rpx'></image>
           </view>
         </view>
-        <view class='list_item'>
+        <view class='list_item' bindtap='toReviewCenterPage'>
           <view class='zan-icon zan-icon-checked' style='color:red'></view>
           <view class='cell_text'>审核中心</view>
           <view style='display: table-cell;'>

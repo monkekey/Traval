@@ -126,4 +126,13 @@ Page({
       url: 'reward/index',
     })
   },
+
+  /**
+   * 审核页面
+   */
+  toReviewCenterPage(){
+    wx.navigateTo({
+      url: 'reviewCenter/index',
+    })
+  }
 })
