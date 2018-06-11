@@ -1,6 +1,6 @@
 <view>
-   <view class='content' style='height:{{height}}px'>
-      <scroll-view scroll-y style='height:{{height}}px'>
+   <view class='content'>
+      <scroll-view scroll-y>
         <form bindsubmit="formSubmit">
           <view class='field_item'>
             <view class='field_name' style='color:#919191'>类型<text style='color:red'>*</text></view>

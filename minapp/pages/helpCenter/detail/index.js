@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    height: 0,
     helpData:{},
     showReplyBox: false
   },
@@ -22,14 +21,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _this = this
-    wx.getSystemInfo({
-      success: function (res) {
-        _this.setData({
-          height: res.windowHeight
-        })
-      },
-    });
      let item = options.item;
      item = JSON.parse(item);
      this.setData({

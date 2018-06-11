@@ -1,6 +1,6 @@
 <view>
    <view class='content' style='margin:10px;'>
-    <scroll-view scroll-y style="height: {{height}}px;">
+    <scroll-view scroll-y>
       <view class='cont_head'>
         <view class='cell_ico'>
           <image src='../../../images/test/img_5.png' style='width:40px;height:40px;border-radius:100%;'></image>

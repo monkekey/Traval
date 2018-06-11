@@ -1,4 +1,4 @@
-<view style='height:{{height}}px;text-align: center;'>
+<view style='text-align: center;'>
   <view class='cont' style="font-size: 30rpx;margin-top:30%;">
     <view><image src='../../../images/test/img_5.png' class='logo_img'></image></view>
     <view class='reward_title'>奖赏小程序开发者</view>

@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    height:0,
     selectedType:'tips',
     selectType:[
       {
@@ -73,14 +72,6 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '发布',
-    });
-    let _this = this;
-    wx.getSystemInfo({
-      success: function (res) {
-        _this.setData({
-          height: res.windowHeight
-        })
-      },
     });
   },
 

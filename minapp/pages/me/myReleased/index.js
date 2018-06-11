@@ -7,7 +7,6 @@ const pageData ={
    */
   data: {
 
-    height: 0,
     tab:{
       list:[{
         id: 0,
@@ -248,13 +247,6 @@ const pageData ={
     }else if(type=='ques'){
       selectedId = 2;
     }
-    wx.getSystemInfo({
-      success: function (res) {
-        _this.setData({
-          height: res.windowHeight
-        })
-      },
-    });
     let componentId="tab";
     _this.setData({
       [`${componentId}.selectedId`]: selectedId,

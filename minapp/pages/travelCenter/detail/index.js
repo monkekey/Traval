@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    height:0,
     travelData:{},
     showReplyBox:false
   },
@@ -44,15 +43,6 @@ Page({
   onLoad: function (options) {
     let item = options.item;
     item = JSON.parse(item);
-    let _this = this
-    wx.getSystemInfo({
-      success: function (res) {
-        _this.setData({
-          height: res.windowHeight,
-          travelData:item
-        })
-      },
-    });
     wx.setNavigationBarTitle({
       title: item.title,
     })
