@@ -45,7 +45,10 @@ Page({
     item = JSON.parse(item);
     wx.setNavigationBarTitle({
       title: item.title,
-    })
+    });
+    this.setData({
+      travelData: item
+    });
   },
 
   /**

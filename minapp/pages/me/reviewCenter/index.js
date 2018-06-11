@@ -143,5 +143,27 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 详情页
+   */
+  toDetailPage(e){
+    console.log(e);
+    let item = e.currentTarget.dataset.item;
+    let type = item.type;
+    item = JSON.stringify(item);
+    let url = "";
+    if (type == 'help') {
+      url = "../../helpCenter/detail/index";
+    } else if (type == 'tips') {
+      url = "../../travelCenter/detail/index";
+    } else if (type == 'ques') {
+      url = 2;
+    };
+    wx.navigateTo({
+      url: url+"?item="+item,
+    })
   }
+
 })

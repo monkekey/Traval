@@ -1,5 +1,5 @@
-<view class='content' style='margin:10px;'>
-    <scroll-view scroll-y>
+<view class='content' style='margin:10px;height:100%;'>
+    <scroll-view scroll-y style='height:100%;'>
       <view class='cont_head'>
         <view class='cell_ico'>
           <image src='../../../images/test/img_5.png' style='width:40px;height:40px;border-radius:100%;'></image>
