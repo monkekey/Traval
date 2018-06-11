@@ -1,7 +1,7 @@
 <import src="/zanui/tab/index.wxml" />
 
-<view>
-  <scroll-view scroll-y bindscrolltolower="lower">
+<view style='height:100%'>
+  <scroll-view scroll-y style='height:100%'>
     <template is="zan-tab" data="{{ ...tab, componentId: 'tab' }}"></template>
     <view class='content_list' wx:if="{{selectedId==0}}">
      <view class='content_list_item' wx:for="{{travleData}}" wx:key="index" bindtap='toTravelDetailPage' data-item='{{item}}'>

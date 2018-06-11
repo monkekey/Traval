@@ -20,7 +20,7 @@
             <view class='cell_tu'>
               <view class='tuzhang'>
                  <view class='review_tips'  wx:if="{{item.reviewStatu=='2'}}">内容违规</view>
-                 <view class='tu_text' style="line-height:{{item.reviewStatu=='2'?80:160}}rpx;">
+                 <view class='tu_text' style="line-height:{{item.reviewStatu=='2'?40:110}}rpx;">
                     <block wx:if="{{item.reviewStatu=='0'}}">未审核</block>
                     <block wx:if="{{item.reviewStatu=='1'}}">审核通过</block>
                     <block wx:if="{{item.reviewStatu=='2'}}">审核失败</block>

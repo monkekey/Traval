@@ -8,8 +8,8 @@ silk-v3-decoder: /home/silk-v3-decoder/
 butler:
   datasource:
     url: jdbc:mysql://gz-cdb-fs0xs7ss.sql.tencentcdb.com:62639/TravalTips?characterEncoding=utf8
-    username: root
-    password: lgsh615917296
+    username: traveltips
+    password: fengniao_traveltips
     driver-class-name: com.mysql.jdbc.Driver
 
 swagger:

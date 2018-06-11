@@ -596,16 +596,16 @@ page{
 }
 .cell_tu .tuzhang{
   display:block;
-  width:300rpx;
+  width:250rpx;
   padding:2px,2px,2px,2px;
-  font-size:30px;
-  color:red;
+  font-size:40rpx;
+  color:#919191;
   font-family:华文隶书;
   border-style:solid;
   background-color:white;
-  border-color:red;
+  border-color:#919191;
   border-radius:50%;
-  height: 150rpx;
+  height: 100rpx;
   background-color:rgba(0,0,0,0.0);
   transform:rotate(30deg);
   -ms-transform:rotate(30deg); 	/* IE 9 */
@@ -614,7 +614,7 @@ page{
   -o-transform:rotate(30deg); 	/* Opera */
 }
 .cell_tu .tuzhang .review_tips{
-   font-size: 30rpx;
+   font-size: 24rpx;
    font-family: 微软雅黑;
    
 }

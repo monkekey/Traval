@@ -11,8 +11,8 @@ silk-v3-decoder: E:\teddyzhou\silk-v3-decoder
 butler:
   datasource:
     url: ${MYSQL_URL}
-    username: root
-    password: lgsh615917296
+    username: traveltips
+    password: fengniao_traveltips
     driver-class-name: com.mysql.jdbc.Driver
 
 swagger:
