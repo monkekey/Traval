@@ -44,7 +44,7 @@ Page({
         reward: null,
         flag: 3,
         type:'help',
-        reviewStatu: 0
+        reviewStatu: 2
       },
       {
         id: '123456',
@@ -84,7 +84,7 @@ Page({
         content: "去北欧看北极光，哪个国家更好",
         title: '北欧在哪里看北极光',
         type:'ques',
-        reviewStatu: 0
+        reviewStatu: 2
       },
     ],
   },
