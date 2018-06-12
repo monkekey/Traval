@@ -193,3 +193,16 @@
   margin:0 0 0 0;
   padding:10rpx 0 0 0;
 }
+.cont_text .text_box .text_cont.showall_no{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.atta_img{
+  width: 28vw;
+  height: 20vw;
+  border-radius: 20rpx;
+  margin:10px 0 0 10px;
+}

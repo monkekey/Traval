@@ -16,9 +16,13 @@
     </view>
     <view class='cont_text'>
       <view class='text_box'>
-        <text>{{travelData.content}}</text>
+        <text class="text_cont {{showAllTextCont?'showall_yes':'showall_no'}}">{{travelData.content}}</text>
+        <view bindtap='showAllText' style='text-align:center;margin:20rpx 0;background-color:#F7F7F6;font-size:24rpx;'>
+          <block wx:if="{{showAllTextCont}}">收起全文 ︿</block>
+          <block wx:if="{{!showAllTextCont}}">展开全文 ﹀</block>
+        </view>
         <view class='attachment'>
-          <image wx:for="{{4}}" wx:key="{{index}}" src="../../../images/test/img_1.jpg" style='width:750rpx'></image>
+          <image wx:for="{{4}}" wx:key="{{index}}" src="../../../images/test/img_1.jpg" class='atta_img' bindtap='priviewImg' data-url='{{imgUrl}}'></image>
         </view>
       </view>
       <image src='../../../images/img_22.png' style='height:28rpx;'></image>

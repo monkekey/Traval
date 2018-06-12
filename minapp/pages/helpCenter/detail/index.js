@@ -6,8 +6,30 @@ Page({
    */
   data: {
     helpData:{},
-    showReplyBox: false
+    showReplyBox: false,
+    showAllTextCont: false
   },
+
+  /**
+   * 预览图片
+   */
+  priviewImg(e) {
+    wx.previewImage({
+      current: '../../../images/test/dog_0.jpg', // 当前显示图片的http链接
+      urls: ['../../../images/test/dog_0.jpg', '../../../images/test/dog_1.jpg'] // 需要预览的图片http链接列表
+    })
+  },
+
+  /**
+   * 展开全文
+   */
+  showAllText() {
+    let showAllTextCont = this.data.showAllTextCont;
+    this.setData({
+      showAllTextCont: !showAllTextCont
+    });
+  },
+
   /**
    * 领取任务
    */

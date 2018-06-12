@@ -72,6 +72,19 @@
   color:#666666;
   margin: 10px
 }
+.form_cont .list_field .field_desc_cont .text_cont.showall_no{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.atta_img{
+  width: 28vw;
+  height: 20vw;
+  border-radius: 20rpx;
+  margin:10px 0 0 10px;
+}
 .last_btn{
   margin: 10px;
   background-color:green;

@@ -6,9 +6,30 @@ Page({
    */
   data: {
     travelData:{},
-    showReplyBox:false
+    showReplyBox:false,
+    showAllTextCont:false
   },
   
+  /**
+   * 预览图片
+   */
+  priviewImg(e){
+    wx.previewImage({
+      current: '../../../images/test/img_1.jpg', // 当前显示图片的http链接
+      urls: ['../../../images/test/img_1.jpg','../../../images/test/img_1.jpg'] // 需要预览的图片http链接列表
+    })
+  },
+  
+  /**
+   * 展开全文
+   */
+  showAllText(){
+    let showAllTextCont = this.data.showAllTextCont;
+    this.setData({
+      showAllTextCont: !showAllTextCont
+    });
+  },
+
   /**
    * 回复内容
    */

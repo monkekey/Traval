@@ -40,10 +40,17 @@
         </view>
         <view class='list_field'>
           <view class='field_desc_name'>描述</view>
-          <view class='field_desc_cont'>深圳市龙华区第二个红绿灯左转弯的第三个路口的大树下</view>
+          <view class='field_desc_cont'>
+            <text class="text_cont {{showAllTextCont?'showall_yes':'showall_no'}}"></text>
+            <text >深圳市龙华区第二个红绿灯左转弯的第三个路口的大树下</text>
+            <view bindtap='showAllText' style='text-align:center;margin:20rpx 0;background-color:#F7F7F6;font-size:24rpx;'>
+              <block wx:if="{{showAllTextCont}}">收起全文 ︿</block>
+              <block wx:if="{{!showAllTextCont}}">展开全文 ﹀</block>
+            </view>
+          </view>
         </view>
         <view class='attachment'>
-          <image wx:for="{{4}}" wx:key="{{index}}" src="../../../images/test/dog_{{item}}.jpg" style='width:750rpx'></image>
+          <image wx:for="{{4}}" wx:key="{{index}}" src="../../../images/test/dog_{{item}}.jpg" class='atta_img' bindtap='priviewImg' data-url='{{imgUrl}}'></image>
         </view>
       </view>
       <view class='last_btn' wx:if="{{helpData.flag==2}}">
