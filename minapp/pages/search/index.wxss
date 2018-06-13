@@ -1,1 +1,2 @@
 /* pages/search/index.wxss */
+@import '../../Area/model.wxss'

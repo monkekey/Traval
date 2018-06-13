@@ -1,4 +1,9 @@
 // pages/search/index.js
+var model = require('../../Area/model.js')
+var show = false;
+var item = {};
+
+
 Page({
 
   /**
@@ -6,6 +11,12 @@ Page({
    */
   data: {
   
+    height: 0,
+    width:0,
+    item: {
+      show: show
+    }
+
   },
 
   /**
@@ -13,13 +24,25 @@ Page({
    */
   onLoad: function (options) {
   
+    let _this = this
+    wx.getSystemInfo({
+      success: function (res) {
+        _this.setData({
+          height: res.windowHeight,
+          width: res.windowWidth
+        })
+      }
+    });
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function (e) {
+    var that = this;
+    //请求数据
+    model.updateAreaData(that, 0, e);
   },
 
   /**
@@ -62,5 +85,24 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  //点击选择城市按钮显示picker-view
+  translate: function (e) {
+    model.animationEvents(this, 0, true, 400);
+  },
+  //隐藏picker-view
+  hiddenFloatView: function (e) {
+    model.animationEvents(this, 200, false, 400);
+  },
+  //滑动事件
+  bindChange: function (e) {
+    model.updateAreaData(this, 1, e);
+    item = this.data.item;
+    this.setData({
+      province: item.provinces[item.value[0]].name,
+      city: item.citys[item.value[1]].name,
+      county: item.countys[item.value[2]].name
+    });
+  },
+
 })

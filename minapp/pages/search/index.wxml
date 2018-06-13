@@ -1,2 +1,41 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<import src="../../Area/model.wxml"/>
+
+<view style='display: flex;width: 100%;justify-content: center;'>
+  <view style='width:96%;margin-top:30rpx;'>
+    <view style='display:flex;align-items:center;border: 2rpx solid #bfbfbf;width:100%;border-radius: 10rpx;' >
+      <view style='display:flex;align-items:center;height:50rpx;margin-left: 10rpx' >
+        <image style='width:35rpx;height:35rpx' src='../../images/icon-black-select.png'></image>
+      </view>
+      <view style='margin-left: 10rpx'>
+        <input placeholder-style='font-size:28rpx' placeholder="输入标题关键字进行查询" />
+      </view>
+    </view>
+    <view>
+      <view style='font-size:28rpx'>选择起始点</view>
+      <view style='display:flex'>
+        <view class="infoText">{{province}} {{city}} {{county}}</view>
+        <view data-type='start' class="infoText" style='margin-left:10rpx;color:blue;font-size:26rpx;border-bottom:2rpx solid blue' bindtap="translate">选择城市</view>
+        <template is="areaData" data="{{...item}}"/>
+      </view>
+    </view>
+    <view>
+      <view style='font-size:28rpx'>是否途径</view>
+      <view style='display:flex'>
+        <view class="infoText">{{province}} {{city}} {{county}}</view>
+        <view data-type='pass' class="infoText" style='margin-left:10rpx;color:blue;font-size:26rpx;border-bottom:2rpx solid blue' bindtap="translate">选择城市</view>
+        <template is="areaData" data="{{...item}}"/>
+      </view>
+    </view>
+    <view>
+      <view style='font-size:28rpx'>最终目的</view>
+      <view style='display:flex'>
+        <view class="infoText">{{province}} {{city}} {{county}}</view>
+        <view data-type='destination' class="infoText" style='margin-left:10rpx;color:blue;font-size:26rpx;border-bottom:2rpx solid blue' bindtap="translate">选择城市</view>
+        <template is="areaData" data="{{...item}}"/>
+      </view>
+    </view>
+    <view>耗时</view>
+    <view>出行类型</view>
+    <view>同行类型</view>
+  </view>
+</view>
