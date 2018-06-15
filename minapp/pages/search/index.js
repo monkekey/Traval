@@ -15,8 +15,18 @@ Page({
     width:0,
     item: {
       show: show
-    }
-
+    },
+    consume: [
+      { name: 0, value: '经济行', checked: 'true' },
+      { name: 1, value: '享受行' }
+    ],
+    accompany: [
+      { name: 0, value: '个人游', checked: 'true' },
+      { name: 1, value: '情侣游' },
+      { name: 2, value: '亲子游' },
+      { name: 3, value: '团体游' }
+    ],
+    loading: false
   },
 
   /**
@@ -104,5 +114,17 @@ Page({
       county: item.countys[item.value[2]].name
     });
   },
-
+  radioChange: function (e) {
+    let _this = this
+    let value = parseInt(e.detail.value)
+    _this.setData({
+      recleaning: value
+    })
+  },
+  consumeChange: function (e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  },
+  accompanyChange: function (e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  }
 })

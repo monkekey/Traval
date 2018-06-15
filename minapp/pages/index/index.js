@@ -314,6 +314,11 @@ const pageData ={
     let num = selectedId
     let _this = this
     
+  },
+  searchChange(){
+    wx.navigateTo({
+      url: '../search/index'
+    })
   }
 
 }

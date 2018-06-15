@@ -1,6 +1,6 @@
 <import src="../../Area/model.wxml"/>
 
-<view style='display: flex;width: 100%;justify-content: center;'>
+<view style='display: flex;width: 100%;justify-content: center;height:90%'>
   <view style='width:96%;margin-top:30rpx;'>
     <view style='display:flex;align-items:center;border: 2rpx solid #bfbfbf;width:100%;border-radius: 10rpx;' >
       <view style='display:flex;align-items:center;height:50rpx;margin-left: 10rpx' >
@@ -10,32 +10,68 @@
         <input placeholder-style='font-size:28rpx' placeholder="输入标题关键字进行查询" />
       </view>
     </view>
-    <view>
-      <view style='font-size:28rpx'>选择起始点</view>
-      <view style='display:flex'>
+
+    <view style='margin-top:30rpx;'>
+      <view style='font-size:32rpx;color:#8a8a8a;'>选择起始点</view>
+      <view style='display:flex;margin-top:30rpx;'>
         <view class="infoText">{{province}} {{city}} {{county}}</view>
         <view data-type='start' class="infoText" style='margin-left:10rpx;color:blue;font-size:26rpx;border-bottom:2rpx solid blue' bindtap="translate">选择城市</view>
         <template is="areaData" data="{{...item}}"/>
       </view>
     </view>
-    <view>
-      <view style='font-size:28rpx'>是否途径</view>
-      <view style='display:flex'>
-        <view class="infoText">{{province}} {{city}} {{county}}</view>
-        <view data-type='pass' class="infoText" style='margin-left:10rpx;color:blue;font-size:26rpx;border-bottom:2rpx solid blue' bindtap="translate">选择城市</view>
-        <template is="areaData" data="{{...item}}"/>
+
+    <view style='margin-top:30rpx;'>
+      <view style='font-size:32rpx;color:#8a8a8a;'>是否途径</view>
+      <view style='display:flex;margin-top:30rpx;margin-left: 10rpx;width:90%'>
+        <input style='font-size:28rpx;border-bottom: 2rpx solid #bfbfbf;width:90%;' placeholder-style='font-size:28rpx' placeholder="多个途径点用 ; 分隔" />
       </view>
     </view>
-    <view>
-      <view style='font-size:28rpx'>最终目的</view>
-      <view style='display:flex'>
+
+    <view style='margin-top:30rpx;'>
+      <view style='font-size:32rpx;color:#8a8a8a;'>最终目的</view>
+      <view style='display:flex;margin-top:30rpx;'>
         <view class="infoText">{{province}} {{city}} {{county}}</view>
         <view data-type='destination' class="infoText" style='margin-left:10rpx;color:blue;font-size:26rpx;border-bottom:2rpx solid blue' bindtap="translate">选择城市</view>
         <template is="areaData" data="{{...item}}"/>
       </view>
     </view>
-    <view>耗时</view>
-    <view>出行类型</view>
-    <view>同行类型</view>
+
+    <view style='margin-top:30rpx;'>
+      <view style='font-size:32rpx;color:#8a8a8a;'>耗时</view>
+      <view style='display:flex;;margin-top:30rpx;'>
+        <view style='margin-left:40rpx;width:15%'>
+          <input style='border-bottom: 2rpx solid #bfbfbf;font-size:26rpx;text-align: center;' 
+                 placeholder-style='font-size:26rpx' 
+                 placeholder='输入耗时' type="number" />
+        </view>
+        <view><text style='font-size:26rpx'>/天</text></view>
+      </view>
+    </view>
+
+    <view style='margin-top:30rpx;'>
+      <view style='font-size:32rpx;color:#8a8a8a;'>消费</view>
+      <view style='margin-top:30rpx;'>
+        <checkbox-group bindchange="consumeChange">
+          <label style='margin-left: 20rpx;font-size:28rpx' class="checkbox" wx:for="{{consume}}">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+
+    <view style='margin-top:30rpx;'>
+      <view style='font-size:32rpx;color:#8a8a8a;'>同行</view>
+      <view style='margin-top:30rpx;'>
+        <checkbox-group style="display: flex;" class='pull-left' bindchange="accompanyChange">
+          <label style='margin-left: 20rpx;font-size:28rpx' class="checkbox flex flex-vc" wx:for="{{accompany}}">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+
+    <view style='display:flex;bottom:0px;position: fixed;width: 100%;margin-bottom: 70rpx;'>
+      <button type="primary" size="mini" loading="{{loading}}" bindtap="primary">搜索</button>
+    </view>
   </view>
 </view>

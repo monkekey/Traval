@@ -4,7 +4,7 @@ page{
 }
 
 .infoText{
-    margin-top: 10rpx;
+    /* margin-top: 10rpx; */
     margin-left: 10rpx;
     text-align: center;
     /* width: 90%; */
@@ -47,6 +47,7 @@ picker-view-column view{
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99
 }
 .animation-element {
   display: flex;

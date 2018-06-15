@@ -2,7 +2,7 @@
 
 <view style="height: {{height}}px;">
   <scroll-view scroll-y style="height: {{height}}px;" bindscrolltolower="lower">
-    <view class='selectView' style='top: {{height/4}}px;'>
+    <view class='selectView' style='top: {{height/4}}px;' bindtap='searchChange'>
       <view class='selectIcon'>
         <image class='selIconImg' src='../../images/icon-black-select.png'></image>
       </view>

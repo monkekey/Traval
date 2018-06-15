@@ -1,2 +1,35 @@
 /* pages/search/index.wxss */
 @import '../../Area/model.wxss'
+
+radio .wx-radio-input{ 
+  /* 自定义样式.... */
+    border-radius: 3rpx; 
+    height: 26rpx; 
+    width: 26rpx;
+    margin-top: -4rpx;
+ }
+
+ /* checkbox未选中时样式 */
+
+checkbox .wx-checkbox-input{
+
+  border-radius: 3rpx;
+  height: 20rpx;
+  width: 20rpx;
+  margin-top: -4rpx;
+
+}
+
+ 
+
+/* checkbox选中时样式 */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+
+/* background-color: #e02e24; */
+
+/* border: 1rpx solid #e02e24; */
+
+/* 自定义样式.... */
+
+}
