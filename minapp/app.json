@@ -11,7 +11,8 @@
     "pages/me/cash/index",
     "pages/me/suggestion/index",
     "pages/me/reward/index",
-    "pages/me/reviewCenter/index"
+    "pages/me/reviewCenter/index",
+    "pages/search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
