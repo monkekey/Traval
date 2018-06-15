@@ -74,5 +74,8 @@ module.exports = {
   },
   cleanOrder: function (data, callback) {
     Request.post(SERVER + `cleanOrder`, data, callback)
-  }
+  },
+  saveUserInfo(data,callback){
+    Request.post(SERVER + "save/userinfo", data,callback)
+  },
 }

@@ -8,6 +8,7 @@ import com.Travel.butler.service.SysUserService;
 import com.Travel.butler.utils.CoodinateCovertor;
 import com.Travel.butler.utils.DESHelper;
 import com.Travel.butler.utils.LngLat;
+import com.Travel.butler.utils.UUIDUtil;
 import com.Travel.butler.vo.InnVo;
 import com.Travel.butler.vo.UserVo;
 import com.Travel.netty.tools.StringUtils;
@@ -37,6 +38,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import sun.plugin.util.UIUtil;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
@@ -70,14 +72,10 @@ public class WechatController {
     private IServicesRepository iServicesRepository;
     @Autowired
     private InnService innService;
+
     @Autowired
-    private ISysuserRepository sysuserRepository;
-    @Autowired
-    private ISysuserdetailRepository sysuserdetailRepository;
-    @Autowired
-    private ISysuserdetailRepository iSysuserdetailRepository;
-    @Autowired
-    private IInnRepository innRepository;
+    private UserRepository userRepository;
+
 
     private String page = "pages/index/index";
 
@@ -93,7 +91,7 @@ public class WechatController {
         }
 
         String appid = wechataccount.getAppId();
-        String secret = DESHelper.decrypt(wechataccount.getSecret(), StringUtils.sortByChart(appid.concat("lavandeinn")).substring(0, 8));//wechataccount.getSecret()
+        String secret = DESHelper.decrypt(wechataccount.getSecret(), StringUtils.sortByChart(appid.concat("Travel")).substring(0, 8));//wechataccount.getSecret()
         if(StringUtils.isNULL(appid)|| StringUtils.isNULL(secret)){
             return RequestResult.fail("应用数据错误");
         }
@@ -120,6 +118,28 @@ public class WechatController {
         return RequestResult.fail("获取openid失败!");
     }
 
+    @PostMapping("save/userinfo")
+    @ApiOperation("保存/更新用户信息")
+    public RequestResult saveUserInfo(@RequestBody User user){
+        User user_temp  = userRepository.findByOpenid(user.getOpenid());
+        try {
+            if(null == user_temp){
+                String id = UUIDUtil.getUidByPrefix("LOGIN",8);
+                user.setId(id);
+                user.setIsInuse(new Byte("0"));
+                user.setCreateTime(new Date());
+                userRepository.saveAndFlush(user);
+            }else{
+                user_temp.setNickName(user.getNickName());
+                user_temp.setAvatarUrl(user.getAvatarUrl());
+                user_temp.setUpdateTime(new Date());
+                userRepository.saveAndFlush(user_temp);
+            }
+            return RequestResult.success(user);
+        }catch (Exception e){
+            return RequestResult.fail("保存数据失败",e.getMessage());
+        }
+    }
 
     @GetMapping("/getButlerInfo")
     @ApiOperation(value = "WX|获取门店信息以及管家资料")

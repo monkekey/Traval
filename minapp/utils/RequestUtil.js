@@ -1,9 +1,9 @@
 var app = getApp();
-// var BASEAPI = 'http://192.168.10.26:9081';
+var BASEAPI = 'http://localhost:9087';
 // var WSAPI = 'ws://192.168.10.26:5544/ws';
 // var SERVER = 'http://192.168.10.26:8091';
 
-var BASEAPI = 'https://butler.hanpudun.cn/';
+// var BASEAPI = 'https://butler.hanpudun.cn/';
 var WSAPI = 'wss://butler.hanpudun.cn/ws';
 var SERVER = 'https://api.iyumi.com/web';
 

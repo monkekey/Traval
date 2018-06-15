@@ -13,24 +13,43 @@ const app = {
     wx.login({
       success: function (res) {
         let code = res.code;
-        wx.getUserInfo({
-          success: function (userRes) {
-            that.globalData.userInfo = userRes.userInfo
-            getApp().setWxStorageSync('TravelUserInfo', userRes.userInfo);
-            lavandeAPI.getOpenId({ platformCode: that.globalData.platformCode, code: code }, function (openIdRes) {
-              if (openIdRes.success) {
-                let openid = openIdRes.data.openid;
-                that.globalData.openid = openid;
-                getApp().setWxStorageSync('TravelOpenid', openid);
-
-                typeof cb == "function" && cb(openid)
+        //获取openid 保存用户信息
+        lavandeAPI.getOpenId({ platformCode: that.globalData.platformCode, code: code }, function (openIdRes) {
+          if (openIdRes.success) {
+            console.log(openIdRes);
+            let openid = openIdRes.data.openid;
+            that.globalData.openid = openid;
+            getApp().setWxStorageSync('TravelOpenid', openid);
+            // 查看是否授权
+            wx.getSetting({
+              success: function (res) {
+                if (res.authSetting['scope.userInfo']) {
+                  // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                  wx.getUserInfo({
+                    success: function (userRes) {
+                      console.log(userRes);
+                      that.globalData.userInfo = userRes.userInfo
+                      getApp().setWxStorageSync('TravelUserInfo', userRes.userInfo);
+                      userRes.userInfo.openid = openid;
+                      lavandeAPI.saveUserInfo(userRes.userInfo,function (result) {
+                         console.log(result);
+                      })
+                    },
+                    fail: function (res) {
+                      console.log(res);
+                      getApp().setWxStorageSync('TravelUserInfo', null);
+                    }
+                  })
+                } else {
+                  console.log("没有授权");
+                  getApp().setWxStorageSync('TravelUserInfo', null);
+                }
               }
-            })
-          },
-          fail: function () {
-            
+            }); 
+            typeof cb == "function" && cb(openid)
           }
-        })
+        });
+        
       }, fail: function () {
        
       }

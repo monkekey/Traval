@@ -62,7 +62,11 @@ Page({
     TravelPhonto:[],
     releaseTypeName:'',
     formData:{
-       releaseType:''
+       releaseType:'',
+       travelArea:'',
+       detailAddr:'',
+       passPlace:'',
+       travelFeel:''
     },
   },
 
@@ -146,7 +150,11 @@ Page({
    * 地区联动选择
    */
   bindRegionChange(e){
-    console.log(e);
+    this.setData({
+      formData: {
+        travelArea: e.detail.value
+      },
+    });
   },
 
   /**
@@ -183,5 +191,12 @@ Page({
    */
   radioChange(e){
     console.log(e)
+  },
+  
+  /**
+   * 表单提交
+   */
+  formSubmit(e){
+    console.log(e);
   }
 })

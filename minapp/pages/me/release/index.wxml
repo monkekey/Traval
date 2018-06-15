@@ -38,7 +38,7 @@
               <view class='field_value'>
                 <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
                   <view class="picker">
-                    <input placeholder='请选择目的地所在区域'  placeholder-style="color:black"></input>
+                    <input placeholder='请选择目的地所在区域'  placeholder-style="color:black" value='{{formData.TravelArea}}'></input>
                   </view>
                 </picker>
               </view>
@@ -46,19 +46,19 @@
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>详细地址<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <input placeholder='请输入您的目的地详细地址' placeholder-style="color:black"></input>
+                <input placeholder='请输入您的目的地详细地址' placeholder-style="color:black" value='{{formData.detailAddr}}' name="detailAddr"></input>
               </view>
             </view>
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>途径地点<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <input placeholder='多个地点用逗号隔开' placeholder-style="color:black"></input>
+                <input placeholder='多个地点用逗号隔开' placeholder-style="color:black" value="{{formData.passPlace}}" name="passPlace"></input>
               </view>
             </view>
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>游感<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <textarea placeholder='分享您的攻略及游玩人文感受' placeholder-style="color:black"></textarea>
+                <textarea placeholder='分享您的攻略及游玩人文感受' placeholder-style="color:black" value='{{formData.travelFeel}}'></textarea>
               </view>
             </view>
             <view class='field_item'>

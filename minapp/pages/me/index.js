@@ -1,4 +1,5 @@
 // pages/me/index.js
+const lavandeAPI = require('../../api/LavandeAPI.js')
 Page({
 
   /**
@@ -10,8 +11,14 @@ Page({
   },
    
   bindGetUserInfo: function (e) {
+    let userInfo = e.detail.userInfo;
     this.setData({
       userInfo: e.detail.userInfo
+    });
+    let openid = wx.getStorageSync("TravelOpenid");
+    userInfo.openid = openid;
+    lavandeAPI.saveUserInfo(userInfo, function (result) {
+      console.log(result);
     })
   },
   
@@ -19,7 +26,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let userInfo = wx.getStorageSync("userInfo");
+    let userInfo = wx.getStorageSync("TravelUserInfo");
+    console.log(userInfo);
     let _this = this;
     wx.getSystemInfo({
       success: function (res) {

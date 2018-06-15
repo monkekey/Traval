@@ -9,7 +9,8 @@ public class User {
     private String id;
     private String openid;
     private String nickName;
-    private String avatar;
+    private String avatarUrl;
+    private Byte gender;
     private String province;
     private String city;
     private String area;
@@ -50,13 +51,23 @@ public class User {
     }
 
     @Basic
-    @Column(name = "avatar", nullable = true, length = 400)
-    public String getAvatar() {
-        return avatar;
+    @Column(name = "avatar_url", nullable = true, length = 400)
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @Basic
+    @Column(name = "gender", nullable = true, length = 400)
+    public Byte getGender() {
+        return gender;
+    }
+
+    public void setGender(Byte gender) {
+        this.gender = gender;
     }
 
     @Basic
@@ -149,7 +160,8 @@ public class User {
         if (id != null ? !id.equals(user.id) : user.id != null) return false;
         if (openid != null ? !openid.equals(user.openid) : user.openid != null) return false;
         if (nickName != null ? !nickName.equals(user.nickName) : user.nickName != null) return false;
-        if (avatar != null ? !avatar.equals(user.avatar) : user.avatar != null) return false;
+        if (avatarUrl != null ? !avatarUrl.equals(user.avatarUrl) : user.avatarUrl != null) return false;
+        if (gender != null ? !gender.equals(user.gender) : user.gender != null) return false;
         if (province != null ? !province.equals(user.province) : user.province != null) return false;
         if (city != null ? !city.equals(user.city) : user.city != null) return false;
         if (area != null ? !area.equals(user.area) : user.area != null) return false;
@@ -167,7 +179,8 @@ public class User {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (openid != null ? openid.hashCode() : 0);
         result = 31 * result + (nickName != null ? nickName.hashCode() : 0);
-        result = 31 * result + (avatar != null ? avatar.hashCode() : 0);
+        result = 31 * result + (avatarUrl != null ? avatarUrl.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (province != null ? province.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (area != null ? area.hashCode() : 0);
