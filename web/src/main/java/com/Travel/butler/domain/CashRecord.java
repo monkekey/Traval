@@ -12,6 +12,8 @@ public class CashRecord {
     private Byte isSuccess;
     private Date createTime;
     private Date upDateTime;
+    private String createBy;
+    private Integer flag;
 
     @Id
     @Column(name = "id", nullable = false, length = 32)
@@ -73,6 +75,26 @@ public class CashRecord {
         this.upDateTime = upDateTime;
     }
 
+    @Basic
+    @Column(name = "createBy", nullable = true)
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    @Basic
+    @Column(name = "flag", nullable = true)
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -86,8 +108,8 @@ public class CashRecord {
         if (isSuccess != null ? !isSuccess.equals(that.isSuccess) : that.isSuccess != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
         if (upDateTime != null ? !upDateTime.equals(that.upDateTime) : that.upDateTime != null) return false;
-
-        return true;
+        if (createBy != null ? !createBy.equals(that.createBy) : that.createBy != null) return false;
+        return flag != null ? flag.equals(that.flag) : that.flag == null;
     }
 
     @Override
@@ -98,6 +120,8 @@ public class CashRecord {
         result = 31 * result + (isSuccess != null ? isSuccess.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (upDateTime != null ? upDateTime.hashCode() : 0);
+        result = 31 * result + (createBy != null ? createBy.hashCode() : 0);
+        result = 31 * result + (flag != null ? flag.hashCode() : 0);
         return result;
     }
 }

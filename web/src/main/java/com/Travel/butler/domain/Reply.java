@@ -12,6 +12,7 @@ public class Reply {
     private String replyContent;
     private Date createTime;
     private Date updateTime;
+    private Integer flag;
 
     @Id
     @Column(name = "id", nullable = false, length = 32)
@@ -71,6 +72,16 @@ public class Reply {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Basic
+    @Column(name = "flag", nullable = true)
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 
     @Override
