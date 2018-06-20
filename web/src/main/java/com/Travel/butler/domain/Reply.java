@@ -97,8 +97,7 @@ public class Reply {
         if (replyContent != null ? !replyContent.equals(reply.replyContent) : reply.replyContent != null) return false;
         if (createTime != null ? !createTime.equals(reply.createTime) : reply.createTime != null) return false;
         if (updateTime != null ? !updateTime.equals(reply.updateTime) : reply.updateTime != null) return false;
-
-        return true;
+        return flag != null ? flag.equals(reply.flag) : reply.flag == null;
     }
 
     @Override
@@ -109,6 +108,7 @@ public class Reply {
         result = 31 * result + (replyContent != null ? replyContent.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
+        result = 31 * result + (flag != null ? flag.hashCode() : 0);
         return result;
     }
 }

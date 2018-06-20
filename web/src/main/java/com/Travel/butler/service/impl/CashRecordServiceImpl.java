@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class CashRecordServiceImpl implements CashRecordService {
 
     @Autowired
@@ -90,6 +92,7 @@ public class CashRecordServiceImpl implements CashRecordService {
             return "删除失败，无此记录！";
         }
 
+        old_cashRecord.setUpDateTime(new Date());
         old_cashRecord.setFlag(CommonFlag.DELETED.getValue());
         cashRecordRepository.saveAndFlush(old_cashRecord);
 

@@ -2,7 +2,5 @@ package com.Travel.butler.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IReplyRepostiory extends JpaRepository<Reply,String> {
-
-
+public interface IRewardRecordRepository extends JpaRepository<RewardRecord,String> {
 }
