@@ -16,6 +16,28 @@ import java.util.Date;
 import java.util.List;
 
 public class UploaderAliyunOSS {
+
+    private static OSSClient client = null;
+
+    /**
+     * 初始化bucket
+     * @param point
+     * @param key
+     * @param secret
+     * @param bucket
+     * @return
+     */
+    private static OSSClient getClient(String point, String key, String secret, String bucket){
+        client=new OSSClient(point, key, secret);
+        // 获取Bucket的存在信息
+        boolean bucketExist = client.doesBucketExist(bucket);
+        //不存在这创建一个bucket
+        if (!bucketExist){
+            client.createBucket(bucket);
+        }
+        return client;
+    }
+
     /**
      * 上传到阿里云OSS
      * @param file
@@ -27,12 +49,9 @@ public class UploaderAliyunOSS {
      * @return  List<String> 图片全链接
      */
     public static List<String> upload2Oss(File file, String uploadPah, String point, String key, String secret, String bucket){
-        // 初始化一个OSSClient
-        OSSClient client = new OSSClient(point, key, secret);
-        // 获取Bucket的存在信息
-        boolean bucketExist = client.doesBucketExist(bucket);
-        if (!bucketExist)//不存在这创建一个bucket
-            client.createBucket(bucket);
+        if(client==null){
+            getClient(point,key,secret,bucket);
+        }
         List<String> fileUrlList = new ArrayList<String>();
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 
@@ -76,12 +95,9 @@ public class UploaderAliyunOSS {
      * @return  List<String> 路径链接
      */
     public static String upload3Oss(InputStream file, String ext, String uploadPah, String point, String key, String secret, String bucket){
-        // 初始化一个OSSClient
-        OSSClient client = new OSSClient(point, key, secret);
-        // 获取Bucket的存在信息
-        boolean bucketExist = client.doesBucketExist(bucket);
-        if (!bucketExist)//不存在这创建一个bucket
-            client.createBucket(bucket);
+        if(client==null){
+            getClient(point,key,secret,bucket);
+        }
         String fileUrl = "";
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 
@@ -123,12 +139,9 @@ public class UploaderAliyunOSS {
      * @return  List<String> 路径链接
      */
     public static String upload3OssProject(InputStream file, String ext, String uploadPah, String point, String key, String secret, String bucket,String department){
-        // 初始化一个OSSClient
-        OSSClient client = new OSSClient(point, key, secret);
-        // 获取Bucket的存在信息
-        boolean bucketExist = client.doesBucketExist(bucket);
-        if (!bucketExist)//不存在这创建一个bucket
-            client.createBucket(bucket);
+        if(client==null){
+            getClient(point,key,secret,bucket);
+        }
         String fileUrl = "";
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 

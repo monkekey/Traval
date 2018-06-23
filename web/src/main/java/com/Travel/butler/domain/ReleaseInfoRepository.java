@@ -8,7 +8,4 @@ import java.util.Map;
 
 public interface ReleaseInfoRepository extends JpaRepository<ReleaseInfo,String> {
 
-    public ReleaseInfo saveRelease(ReleaseInfo releaseInfo);
-
-    Page<ReleaseInfo> findAllByParams(Map<String,Object> params, Pageable pageable);
 }

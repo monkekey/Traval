@@ -9,5 +9,5 @@ public interface ReleaseInfoService {
 
     public ReleaseInfo saveRelease(ReleaseInfo releaseInfo);
 
-    public Page<ReleaseInfo> getReleaseListPageByParams(Map<String,Object> params);
+//    public Page<ReleaseInfo> getReleaseListPageByParams(Map<String,Object> params);
 }
