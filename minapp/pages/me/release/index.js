@@ -1,10 +1,13 @@
-// pages/me/released/index.js
+var Request = require('../../../utils/RequestUtil.js');
+
+var SERVER = Request.WEB_URL;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    onLoading:false,
     selectedType:'tips',
     selectType:[
       {
@@ -59,14 +62,23 @@ Page({
       }
     ],
     region: ['广东省', '广州市', '海珠区'],
-    TravelPhonto:[],
-    releaseTypeName:'',
+    travelPhonto:[],
+    helpPhonto:[],
+    releaseTypeName: '',
+    releaseType: '',
+    travelType: '',
+    travelArea: '',
+    helpType:'',
+    isReward:'',
     formData:{
-       releaseType:'',
-       travelArea:'',
        detailAddr:'',
-       passPlace:'',
-       travelFeel:''
+       passAddr:'',
+       travelFeel:'',
+       title:'',
+       detaileAddr:'',
+       rewardMoney:'',
+       remark:'',
+       content:'',
     },
   },
 
@@ -132,17 +144,22 @@ Page({
    * 类型选择
    */
   bindPickerChange(e){
-    console.log(e);
     let index = e.detail.value;
     let data = this.data.selectType;
     let obj = data[index];
-    console.log(obj)
     this.setData({
-      formData: {
-        releaseType: obj.id
-      },
-      releaseTypeName:obj.value,
+      releaseType: obj.id,
+      releaseTypeName: obj.value,
       selectedType: obj.id
+    });
+  },
+  
+  /**
+   * 攻略类型选择
+   */
+  checkboxChange(e){
+    this.setData({
+      travelType: e.detail.value,
     });
   },
 
@@ -151,9 +168,7 @@ Page({
    */
   bindRegionChange(e){
     this.setData({
-      formData: {
-        travelArea: e.detail.value
-      },
+      travelArea: e.detail.value
     });
   },
 
@@ -161,7 +176,7 @@ Page({
  * 从相册选择照片或拍照
  */
   chooseImg(e) {
-    let phontos = this.data.TravelPhonto;
+    let selectedType = this.data.selectedType;
     let self = this;
     wx.chooseImage({
       count: 4, // 默认9
@@ -171,32 +186,98 @@ Page({
         console.log(res);
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         let tempFilePaths = res.tempFilePaths;
-        phontos.push(tempFilePaths);
-        self.setData({
-          TravelPhonto: phontos
-        });
+        if ("tips" == selectedType){
+          let phontos = self.data.travelPhonto;
+          phontos.push(tempFilePaths);
+          for (let i = 0; i < tempFilePaths.length;i++){
+            wx.uploadFile({
+              url: SERVER + "uploadFile/upload",
+              filePath: tempFilePaths[i],
+              name: 'file',
+              success: function (res) {
+                console.log(res)
+              }
+            })
+          }
+          
+          self.setData({
+            travelPhonto: phontos
+          });
+        } else if ("help" == selectedType){
+          let phontos = self.data.helpPhonto;
+          phontos.push(tempFilePaths);
+          self.setData({
+            helpPhonto: phontos
+          });
+        }
       }
     })
   },
-  
+
+  /**
+   * 删除一添加的图片
+   */
+  deleteImg(e){
+    console.log(e);
+    let selectedType = this.data.selectedType;
+    let index = e.target.dataset.index;
+    if ("tips" == selectedType) {
+      let data = this.data.travelPhonto;
+      console.log(data);
+      data.splice(index, 1);
+      self.setData({
+        travelPhonto: data
+      });
+    } else if ("help" == selectedType) {
+      let data = this.data.helpPhonto;
+      data.splice(index, 1);
+      self.setData({
+        helpPhonto: phontos
+      });
+    }
+  },
   /**
    * 是否设置激励金
    */
   radioRewardChange(e){
-     console.log(e)
+     this.setData({
+       isReward:e.detail.value
+     });
   },
   
   /**
    * 求助类型
    */
   radioChange(e){
-    console.log(e)
+    this.setData({
+      helpType:e.detail.value
+    });
   },
   
   /**
    * 表单提交
    */
   formSubmit(e){
+    this.setData({
+      onLoading:true
+    });
+    let releaseType = this.data.releaseType;
+    let formData = this.data.formData;
+    formData.releaseType = releaseType,
+    formData.releaseTypeName = this.data.releaseTypeName,
     console.log(e);
+    if ("tips" == releaseType){
+      formData.travelType = this.data.travelType;
+      formData.travelArea = this.data.travelArea;
+      formData.travelPhonto = this.data.travelPhonto;
+      formData.travelArea = this.data.travelArea;
+    } else if ("help" == releaseType){
+      formData.helpPhonto = this.data.helpPhonto;
+      formData.travelArea = this.data.travelArea;
+      formData.helpType = this.data.helpType;
+      formData.isReward = this.data.isReward;
+    } else if ("question" == releaseType){
+
+    }
   }
 })

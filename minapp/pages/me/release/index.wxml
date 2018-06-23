@@ -7,7 +7,7 @@
             <view class='field_value'>
                 <picker bindchange="bindPickerChange" value="{{index}}" range="{{selectType}}" range-key="{{'value'}}">
                   <view class="picker">
-                    <input placeholder='请选择发布类型' value='{{releaseTypeName}}' placeholder-style="color:black"></input>
+                    <input placeholder='请选择发布类型' value='{{releaseTypeName}}' placeholder-style="color:black" name="releaseTypeName"></input>
                   </view>
                 </picker>
             </view>
@@ -15,7 +15,7 @@
           <view class='field_item'>
             <view class='field_name' style='color:#919191'>标题<text style='color:red'>*</text></view>
             <view class='field_value'>
-                <input placeholder='请输入标题' placeholder-style="color:black"></input>
+                <input placeholder='请输入标题' placeholder-style="color:black" value='{{formData.title}}' name="title"></input>
             </view>
           </view>
 
@@ -38,7 +38,7 @@
               <view class='field_value'>
                 <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
                   <view class="picker">
-                    <input placeholder='请选择目的地所在区域'  placeholder-style="color:black" value='{{formData.TravelArea}}'></input>
+                    <input placeholder='请选择目的地所在区域'  placeholder-style="color:black" value='{{travelArea}}' name="travelArea"></input>
                   </view>
                 </picker>
               </view>
@@ -52,19 +52,19 @@
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>途径地点<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <input placeholder='多个地点用逗号隔开' placeholder-style="color:black" value="{{formData.passPlace}}" name="passPlace"></input>
+                <input placeholder='多个地点用逗号隔开' placeholder-style="color:black" value="{{formData.passAddr}}" name="passAddr"></input>
               </view>
             </view>
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>游感<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <textarea placeholder='分享您的攻略及游玩人文感受' placeholder-style="color:black" value='{{formData.travelFeel}}'></textarea>
+                <textarea placeholder='分享您的攻略及游玩人文感受' placeholder-style="color:black" value='{{formData.travelFeel}}' name="travelFeel"></textarea>
               </view>
             </view>
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>途中美照<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <view wx:for="{{TravelPhonto}}" wx:key="{{index}}" style='display:inline-block;margin:0 20rpx;'><image src='{{item}}' style='width:105rpx;height:100rpx'></image></view>
+                <view wx:for="{{travelPhonto}}" wx:key="{{index}}" style='display:inline-block;margin:0 20rpx;'><image src='{{item}}' style='width:105rpx;height:100rpx'></image><text class='deleteBtn' bindtap='deleteImg' data-index='{{index}}'>x</text></view>
                 <view bindtap='chooseImg' class='a_upload'>+</view>
               </view>
             </view>
@@ -97,7 +97,7 @@
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>详细地址<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <input placeholder='请输入遗失详细地址' placeholder-style="color:black"></input>
+                <input placeholder='请输入遗失详细地址' placeholder-style="color:black" value='{{formData.detailAddr}}' name="detailAddr"></input>
               </view>
             </view>
             <view class='field_item'>
@@ -115,19 +115,19 @@
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>金额<text style='color:red'>*</text></view>
               <view class='field_value'>
-                  <input placeholder='请输入金额' placeholder-style="color:black"></input>
+                  <input placeholder='请输入金额' placeholder-style="color:black" value='{{formData.rewardMoney}}' name="rewardMoney"></input>
               </view>
             </view>
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>备注<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <textarea placeholder='提供更多线索' placeholder-style="color:black"></textarea>
+                <textarea placeholder='提供更多线索' placeholder-style="color:black" value='{{formData.remark}}' name="remark"></textarea>
               </view>
             </view>
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>相关图片<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <view wx:for="{{TravelPhonto}}" wx:key="{{index}}" style='display:inline-block;margin:0 20rpx;'><image src='{{item}}' style='width:105rpx;height:100rpx'></image></view>
+                <view wx:for="{{helpPhonto}}" wx:key="{{index}}" style='display:inline-block;margin:0 20rpx;'><image src='{{item}}' style='width:105rpx;height:100rpx'></image><text class='deleteBtn' bindtap='deleteImg' data-index='{{index}}'>x</text></view>
                 <view bindtap='chooseImg' class='a_upload'>+</view>
               </view>
             </view>
@@ -138,7 +138,7 @@
             <view class='field_item'>
               <view class='field_name' style='color:#919191'>内容<text style='color:red'>*</text></view>
               <view class='field_value'>
-                <textarea placeholder='说出你的疑惑，大家才能更好的为你解答哦' placeholder-style="color:black"></textarea>
+                <textarea placeholder='说出你的疑惑，大家才能更好的为你解答哦' placeholder-style="color:black" value="{{formData.content}}" name="content"></textarea>
               </view>
             </view>
           </view>

@@ -218,7 +218,7 @@ module.exports = {
   },
   BASE_URL: BASEAPI,
   WEB_URL: BASEAPI + '/lavandeservice/',
-  API_URL: BASEAPI + '/lavandeservice/api/wx',
+  API_URL: BASEAPI + '/lavandeservice/api/wx/',
   WEBSOCKET_URL: WSAPI,
   // YUMIHUI_URL: SERVER,
 }
