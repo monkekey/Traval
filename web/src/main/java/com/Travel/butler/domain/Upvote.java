@@ -11,6 +11,7 @@ public class Upvote {
     private String releaseId;
     private Date createTime;
     private Date updateTime;
+    private Integer flag;
 
     @Id
     @Column(name = "id", nullable = false, length = 32)
@@ -62,6 +63,16 @@ public class Upvote {
         this.updateTime = updateTime;
     }
 
+    @Basic
+    @Column(name = "flag", nullable = true)
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,8 +85,7 @@ public class Upvote {
         if (releaseId != null ? !releaseId.equals(upvote.releaseId) : upvote.releaseId != null) return false;
         if (createTime != null ? !createTime.equals(upvote.createTime) : upvote.createTime != null) return false;
         if (updateTime != null ? !updateTime.equals(upvote.updateTime) : upvote.updateTime != null) return false;
-
-        return true;
+        return flag != null ? flag.equals(upvote.flag) : upvote.flag == null;
     }
 
     @Override
@@ -85,6 +95,7 @@ public class Upvote {
         result = 31 * result + (releaseId != null ? releaseId.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
+        result = 31 * result + (flag != null ? flag.hashCode() : 0);
         return result;
     }
 }

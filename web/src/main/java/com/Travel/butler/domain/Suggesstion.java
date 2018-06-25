@@ -13,6 +13,7 @@ public class Suggesstion {
     private String attachment;
     private Date createTime;
     private Date updateTime;
+    private Integer flag;
 
     @Id
     @Column(name = "id", nullable = false, length = 32)
@@ -84,6 +85,16 @@ public class Suggesstion {
         this.updateTime = updateTime;
     }
 
+    @Basic
+    @Column(name = "flag", nullable = true)
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,8 +109,7 @@ public class Suggesstion {
         if (attachment != null ? !attachment.equals(that.attachment) : that.attachment != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
         if (updateTime != null ? !updateTime.equals(that.updateTime) : that.updateTime != null) return false;
-
-        return true;
+        return flag != null ? flag.equals(that.flag) : that.flag == null;
     }
 
     @Override
@@ -111,6 +121,7 @@ public class Suggesstion {
         result = 31 * result + (attachment != null ? attachment.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
+        result = 31 * result + (flag != null ? flag.hashCode() : 0);
         return result;
     }
 }
