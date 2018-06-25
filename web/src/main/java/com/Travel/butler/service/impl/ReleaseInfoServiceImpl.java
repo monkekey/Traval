@@ -39,13 +39,14 @@ public class ReleaseInfoServiceImpl implements ReleaseInfoService {
         return releaseInfo;
     }
 
-//    @Override
-//    public Page<ReleaseInfo> getReleaseListPageByParams(Map<String, Object> params) {
-//        Integer curPage = Integer.valueOf(params.get("curPage").toString());
-//        Integer pageSize = Integer.valueOf(params.get("pageSize").toString());
-//        Pageable page = new PageRequest(curPage,pageSize,Sort.Direction.DESC,"create_time");
-//        return new Page<ReleaseInfo>();
-//    }
+    @Override
+    public Page<ReleaseInfo> getReleaseListPageByParams(Map<String, Object> params) {
+        Integer curPage = Integer.valueOf(params.get("curPage").toString());
+        Integer pageSize = Integer.valueOf(params.get("pageSize").toString());
+        Pageable page = new PageRequest(curPage,pageSize,Sort.Direction.DESC,"create_time");
+        Page<ReleaseInfo> result = releaseInfoRepository.findAll(page);
+        return result;
+    }
 
 
 }

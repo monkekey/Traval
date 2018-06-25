@@ -38,14 +38,14 @@ public class ReleaseInfoController {
         }
     }
 
-//    @GetMapping("list")
-//    @ApiOperation("获取列表")
-//    public RequestResult getPageListByParams(@RequestParam Map<String,Object> params){
-//        try{
-//            Page<ReleaseInfo> page = releaseInfoService.getReleaseListPageByParams(params);
-//            return RequestResult.success(page);
-//        }catch (Exception e){
-//            return RequestResult.fail(e.getMessage());
-//        }
-//    }
+    @GetMapping("list")
+    @ApiOperation("获取列表")
+    public RequestResult getPageListByParams(@RequestParam Map<String,Object> params){
+        try{
+            Page<ReleaseInfo> page = releaseInfoService.getReleaseListPageByParams(params);
+            return RequestResult.success(page);
+        }catch (Exception e){
+            return RequestResult.fail(e.getMessage());
+        }
+    }
 }
