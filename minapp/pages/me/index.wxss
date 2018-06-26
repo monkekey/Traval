@@ -3,13 +3,13 @@ page {
 }
 .cont .cont_head{
   background-color: white;
-  height:180px;
+  height:50vw;
 }
 .cont .cont_head .head_avatar{
   text-align:center;
   vertical-align:middle;
   font-size: 28rpx;
-  padding-top:100rpx
+  padding-top:15vw
 }
 .cont .cont_head .head_avatar .avatar_img{
   width:120rpx;
@@ -28,7 +28,7 @@ button[size=mini] {
   width:750rpx;
   text-align:center;
   vertical-align:middle;
-  margin-top:20rpx;
+  margin-top:3vw;
 }
 .cont .cont_head .head_bot .cell_left{
   display: table-cell

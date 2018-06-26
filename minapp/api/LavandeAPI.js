@@ -78,4 +78,7 @@ module.exports = {
   saveUserInfo(data,callback){
     Request.post(SERVER + "save/userinfo", data,callback)
   },
+  saveRelease(data,callback){
+    Request.post(SERVER +"release/save",data,callback)
+  },  
 }

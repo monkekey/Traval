@@ -15,7 +15,7 @@ import java.util.Map;
  * 信息发布 列表获取
  */
 @RestController
-@RequestMapping("api/release")
+@RequestMapping("api/wx/release")
 @Api(description = "信息发布 列表获取")
 public class ReleaseInfoController {
 

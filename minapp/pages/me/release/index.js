@@ -1,6 +1,6 @@
-var Request = require('../../../utils/RequestUtil.js');
+const Request = require('../../../utils/RequestUtil.js');
+const lavandeAPI = require('../../../api/LavandeAPI.js')
 
-var SERVER = Request.WEB_URL;
 Page({
 
   /**
@@ -225,13 +225,13 @@ Page({
       let data = this.data.travelPhonto;
       console.log(data);
       data.splice(index, 1);
-      self.setData({
+      this.setData({
         travelPhonto: data
       });
     } else if ("help" == selectedType) {
       let data = this.data.helpPhonto;
       data.splice(index, 1);
-      self.setData({
+      this.setData({
         helpPhonto: phontos
       });
     }
@@ -276,8 +276,9 @@ Page({
       formData.travelArea = this.data.travelArea;
       formData.helpType = this.data.helpType;
       formData.isReward = this.data.isReward;
-    } else if ("question" == releaseType){
-
     }
+    lavandeAPI.saveRelease(formData,(res)=>{
+      console.log(res)
+    });
   }
 })
